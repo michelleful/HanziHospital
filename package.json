@@ -1,0 +1,29 @@
+{
+  "name": "HanziHospital",
+  "version": "0.0.0",
+  "description": "An HTML5 game that teaches the logic of Chinese characters",
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "backbone.marionette": "^2.4.1",
+    "jquery": "^2.1.4",
+    "jquery-ui": "^1.10.5",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "webpack": "^1.8.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-server": "webpack-dev-server --content-base build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/michelleful/HanziHospital.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michelleful/HanziHospital/issues"
+  },
+  "homepage": "https://github.com/michelleful/HanziHospital"
+}
