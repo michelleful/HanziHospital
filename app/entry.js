@@ -3,6 +3,12 @@ var $ = require('jquery');
 var HanziHospitalApp = require('./HanziHospitalApp.js');
 
 
-var app = new HanziHospitalApp();
+var $appEl = $('<div id="hanzi-hospital-app"></div>');
+$appEl.appendTo(document.body);
+
+var app = new HanziHospitalApp({
+    el: $appEl
+});
+app.start();
 
 console.log('app:', app);

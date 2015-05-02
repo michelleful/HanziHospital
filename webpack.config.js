@@ -9,5 +9,8 @@ module.exports = {
     output: {
         path: 'build',
         filename: 'bundle.js'
-    }
+    },
+    loaders: [
+        {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
+    ]
 };
