@@ -1,13 +1,16 @@
 var $ = require('jquery');
-require('jquery-ui');
-var Backbone = require('backbone');
-Backbone.$ = $;
-var Marionette = require('backbone.marionette');
+var Marionette = require('./marionette-shim');
+
+var HanziHospitalLayoutView = require('./HanziHospitalLayoutView');
 
 
 var HanziHospitalApp = Marionette.Application.extend({
-    initialize: function() {
-        console.log('initialize');
+    initialize: function(options) {
+        this.rootView = new HanziHospitalLayoutView({
+            el: options.el
+        });
+
+        this.rootView.render();
     }
 });
 
