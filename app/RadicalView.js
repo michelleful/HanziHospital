@@ -20,7 +20,7 @@ var RadicalView = Marionette.ItemView.extend({
 
         // Add image if not a sink.
         if (behavior != 'sink') {
-            this.$img = $('<img src="' + this.model.get('src') + '"/>');
+            this.$img = $('<img draggable="false" src="' + this.model.get('src') + '"/>');
             this.$el.append(this.$img);
         }
 
@@ -28,14 +28,27 @@ var RadicalView = Marionette.ItemView.extend({
         if (behavior == 'source') {
             this.$img.draggable({
                 revert: 'invalid',
-                snap: '.hh-radical.sink',
-                snapMode: 'inner'
             });
         } else if(behavior == 'sink') {
-            this.$el.droppable();
+            var _this = this;
+            this.$el.droppable({
+                hoverClass: 'drop-hover',
+                drop: function(event, ui){
+                    var $draggable = $(ui.draggable);
+                    $draggable.fadeOut().promise().then(() => {
+                        $(this).append($draggable);
+                        $draggable.draggable('destroy');
+                        $draggable.css({'top': '', 'left': ''});
+                        $draggable.fadeIn().promise().then(() => {
+                            _this.trigger('receive', {src: $draggable.attr('src')});
+                        });
+                    });
+                },
+            });
             this.$el.addClass('sink');
         }
-    }
+    },
+
 });
 
 module.exports = RadicalView;
