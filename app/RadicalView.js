@@ -48,7 +48,7 @@ var RadicalView = Marionette.ItemView.extend({
                         $draggable.draggable('destroy');
                         $draggable.css({'top': '', 'left': ''});
                         $draggable.fadeIn().promise().then(() => {
-                            _this.trigger('drop', {result: dropIsCorrect});
+                            _this.trigger('drop', {isCorrect: dropIsCorrect});
                         });
                     });
                 },
