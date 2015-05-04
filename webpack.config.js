@@ -10,7 +10,16 @@ module.exports = {
         path: 'build',
         filename: 'bundle.js'
     },
-    loaders: [
-        {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
-    ]
+    module: {
+        loaders: [
+            {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
+            {test: /\.less$/, loader: 'style-loader!css-loader!less-loader'},
+            {test: /\.css$/, loader: 'style-loader!css-loader'},
+            {test: /\.(png|gif)$/, loader: "url-loader?limit=100000"},
+            {test: /\.jpg$/, loader: "file-loader"},
+
+        ],
+    },
+    devtool: 'eval',
+    watchDelay: 400
 };
