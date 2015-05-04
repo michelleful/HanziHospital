@@ -8,6 +8,7 @@ var _ = require('underscore');
 var Marionette = require('./marionette-shim');
 
 var OperatingRoomView = require('./OperatingRoomView');
+var ResultsView = require('./ResultsView');
 
 //@TODO: remove this!
 var DUMMY_SRC = 'http://lorempixel.com/200/200/';
@@ -42,6 +43,9 @@ var HanziHospitalView = Marionette.LayoutView.extend({
 
     onEvaluated: function(data) {
         console.log('HHV:onEvaluated', data);
+        var resultsModel = new Backbone.Model(data);
+        var resultsView = new ResultsView({model: resultsModel});
+        this.getRegion('main').show(resultsView);
     },
 
 });
