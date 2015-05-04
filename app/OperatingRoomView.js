@@ -1,6 +1,6 @@
 /**
- * HanziHospitalLayoutView.js
- * Main layout for HanziHospital.
+ * OperatingRoomLayoutView.js
+ * Layout for operating room.
  */
 
 var Backbone = require('backbone');
@@ -13,10 +13,11 @@ var CharacterView = require('./CharacterView');
 var DUMMY_SRC = 'http://lorempixel.com/200/200/';
 
 
-var HanziHospitalLayoutView = Marionette.LayoutView.extend({
+var OperatingRoomView = Marionette.LayoutView.extend({
+    className: 'hh-operating-room',
     template: _.template(''
-        + '<div class="receiver-region"></div>'
-        + '<div class="donor-region"></div>'
+        + '<div class="receiver-region gurney"></div>'
+        + '<div class="donor-region gurney"></div>'
         + ''
     ),
 
@@ -42,6 +43,7 @@ var HanziHospitalLayoutView = Marionette.LayoutView.extend({
         });
         var receiverView = new CharacterView({model: receiverModel});
         this.getRegion('receiver').show(receiverView);
+        receiverView.once('drop', this.onDrop, this);
 
         // Render donor.
         // @TODO: will do this dynamically later after selecting donor.
@@ -61,9 +63,13 @@ var HanziHospitalLayoutView = Marionette.LayoutView.extend({
         });
         var donorView = new CharacterView({model: donorModel});
         this.getRegion('donor').show(donorView);
+    },
 
+    onDrop: function(dropData) {
+        console.log('OR onDrop', dropData);
+        this.trigger('evaluated', dropData);
     }
 
 });
 
-module.exports = HanziHospitalLayoutView;
+module.exports = OperatingRoomView;

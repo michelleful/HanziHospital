@@ -31,16 +31,24 @@ var RadicalView = Marionette.ItemView.extend({
             });
         } else if(behavior == 'sink') {
             var _this = this;
+
             this.$el.droppable({
                 hoverClass: 'drop-hover',
+
                 drop: function(event, ui){
                     var $draggable = $(ui.draggable);
+
+                    // Evaluate result.
+                    var dropIsCorrect = (
+                        _this.model.get('expected') == $draggable.attr('src'));
+
+                    // Update draggable element.
                     $draggable.fadeOut().promise().then(() => {
                         $(this).append($draggable);
                         $draggable.draggable('destroy');
                         $draggable.css({'top': '', 'left': ''});
                         $draggable.fadeIn().promise().then(() => {
-                            _this.trigger('receive', {src: $draggable.attr('src')});
+                            _this.trigger('drop', {result: dropIsCorrect});
                         });
                     });
                 },
