@@ -21,5 +21,8 @@ module.exports = {
         ],
     },
     devtool: 'eval',
-    watchDelay: 400
+    watchDelay: 400,
+    externals: {
+        "jquery": "jQuery"
+    }
 };

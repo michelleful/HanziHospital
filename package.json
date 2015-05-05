@@ -7,6 +7,7 @@
     "backbone.marionette": "^2.4.1",
     "jquery": "^2.1.4",
     "jquery-ui": "^1.10.5",
+    "jquery-ui-touch-punch": "^0.2.3",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
@@ -18,7 +19,8 @@
     "less-loader": "^2.2.0",
     "style-loader": "^0.12.1",
     "url-loader": "^0.5.5",
-    "webpack": "^1.8.11"
+    "webpack": "^1.8.11",
+    "webpack-dev-server": "^1.8.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
