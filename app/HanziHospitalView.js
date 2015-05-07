@@ -39,7 +39,34 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         this.getRegion('main').show(operatingRoomView);
 
         // Render donors.
+        var donorsCollection = new Backbone.Collection([
+            new Backbone.Model({
+                components: {
+                    left: {
+                        behavior: 'static',
+                        src: DUMMY_SRC,
+                    },
+                    right: {
+                        behavior: 'static',
+                        src: DUMMY_SRC,
+                    }
+                }
+            }),
+            new Backbone.Model({
+                components: {
+                    left: {
+                        behavior: 'static',
+                        src: DUMMY_SRC,
+                    },
+                    right: {
+                        behavior: 'static',
+                        src: DUMMY_SRC,
+                    }
+                }
+            }),
+        ]);
         var donorsView = new DonorsView({
+            collection: donorsCollection
         });
         this.getRegion('donors').show(donorsView);
 
