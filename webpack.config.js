@@ -4,7 +4,10 @@ var path = require('path');
 module.exports = {
     context: path.resolve('app'),
     entry: {
-        app: ['./entry.js']
+        app: [
+            'webpack/hot/dev-server',
+            './entry.js'
+        ]
     },
     output: {
         path: 'build',
