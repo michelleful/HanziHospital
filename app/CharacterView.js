@@ -8,28 +8,28 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var Marionette = require('./marionette-shim');
 
-var RadicalView = require('./RadicalView');
+var ComponentView = require('./ComponentView');
 
 
 var CharacterView = Marionette.LayoutView.extend({
     className: 'hh-character',
     template: _.template(''
-        + '<div class="hh-radical-region left-radical"></div>'
-        + '<div class="hh-radical-region right-radical"></div>'
+        + '<div class="hh-component-region left-component"></div>'
+        + '<div class="hh-component-region right-component"></div>'
         + ''
     ),
 
     regions: {
-        left: '.left-radical',
-        right: '.right-radical'
+        left: '.left-component',
+        right: '.right-component'
     },
 
     onRender: function() {
-        _.each(this.model.get('radicals'), function(radical, position) {
-            var radicalModel = new Backbone.Model(radical);
-            var radicalView = new RadicalView({model: radicalModel});
-            this.getRegion(position).show(radicalView);
-            radicalView.on('drop', this.onDrop, this)
+        _.each(this.model.get('components'), function(component, position) {
+            var componentModel = new Backbone.Model(component);
+            var componentView = new ComponentView({model: componentModel});
+            this.getRegion(position).show(componentView);
+            componentView.on('drop', this.onDrop, this)
         }, this);
     },
 

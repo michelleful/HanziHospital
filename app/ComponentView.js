@@ -1,6 +1,6 @@
 /*
- * RadicalView.js 
- * A view for showing an indiviaul radical,
+ * ComponentView.js 
+ * A view for showing an indiviaul component,
  * with various behaviors.
  */
 
@@ -9,8 +9,8 @@ require('./jquery-ui-shim');
 var _ = require('underscore');
 var Marionette = require('./marionette-shim');
 
-var RadicalView = Marionette.ItemView.extend({
-    className: 'hh-radical',
+var ComponentView = Marionette.ItemView.extend({
+    className: 'hh-component',
 
     template: _.template(''),
 
@@ -58,4 +58,4 @@ var RadicalView = Marionette.ItemView.extend({
 
 });
 
-module.exports = RadicalView;
+module.exports = ComponentView;

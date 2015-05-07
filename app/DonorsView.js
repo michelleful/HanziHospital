@@ -7,13 +7,18 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var Marionette = require('./marionette-shim');
 
+var CharacterView = require('./CharacterView');
 
-var DonorsView = Marionette.ItemView.extend({
+
+var DonorsView = Marionette.CompositeView.extend({
     className: 'hh-donors',
     template: _.template(''
         + 'DONORS!'
+        + '<ul></ul>'
         + ''
     ),
+    childView: CharacterView,
+    childViewContainer: 'ul'
 });
 
 module.exports = DonorsView;

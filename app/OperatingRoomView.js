@@ -30,7 +30,7 @@ var OperatingRoomView = Marionette.LayoutView.extend({
 
         // Render receiver.
         var receiverModel = new Backbone.Model({
-            radicals: {
+            components: {
                 left: {
                     behavior: 'sink',
                 },
@@ -48,7 +48,7 @@ var OperatingRoomView = Marionette.LayoutView.extend({
         // Render donor.
         // @TODO: will do this dynamically later after selecting donor.
         var donorModel = new Backbone.Model({
-            radicals: {
+            components: {
                 left: {
                     behavior: 'source',
                     // @TODO: get from data.
