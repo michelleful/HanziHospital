@@ -9,6 +9,7 @@ var Marionette = require('./marionette-shim');
 
 var OperatingRoomView = require('./OperatingRoomView');
 var ResultsView = require('./ResultsView');
+var DonorsView = require('./DonorsView');
 
 //@TODO: remove this!
 var DUMMY_SRC = 'http://lorempixel.com/200/200/';
@@ -31,14 +32,18 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         // Render operating room..
         // @TODO: get data dynamically.
         var operatingRoomModel = new Backbone.Model({});
-
         var operatingRoomView = new OperatingRoomView({
             model: operatingRoomModel
         });
-
         operatingRoomView.on('evaluated', this.onEvaluated, this);
-
         this.getRegion('main').show(operatingRoomView);
+
+        // Render donors.
+        var donorsView = new DonorsView({
+        });
+        this.getRegion('donors').show(donorsView);
+
+
     },
 
     onEvaluated: function(data) {
