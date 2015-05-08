@@ -71,7 +71,7 @@ def create_component(filename, missing_position=None):
         
         return {
             'component': component,
-#            'position': position,
+            'svg': svg,
             'width': width,
             'behavior': behavior,
         }
