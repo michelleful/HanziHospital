@@ -1,0 +1,458 @@
+[
+    {
+        "donors": [
+            {
+                "char": "妈", 
+                "codepoint": "5988", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "女", 
+                        "width": 424.5
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "马", 
+                        "width": 575.5
+                    }
+                }, 
+                "meaning": "mother", 
+                "pinyin": "mā"
+            }, 
+            {
+                "char": "姐", 
+                "codepoint": "59d0", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "女", 
+                        "width": 431.0
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "且", 
+                        "width": 569.0
+                    }
+                }, 
+                "meaning": "older sister", 
+                "pinyin": "jiě"
+            }, 
+            {
+                "char": "妹", 
+                "codepoint": "59b9", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "女", 
+                        "width": 421.0
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "未", 
+                        "width": 579.0
+                    }
+                }, 
+                "meaning": "younger sister", 
+                "pinyin": "mèi"
+            }
+        ], 
+        "patient": {
+            "char": "她", 
+            "codepoint": "5979", 
+            "components": {
+                "left": {
+                    "behavior": "sink", 
+                    "component": "女", 
+                    "width": 406.5
+                }, 
+                "right": {
+                    "behavior": "static", 
+                    "component": "也", 
+                    "width": 593.5
+                }
+            }, 
+            "meaning": "she", 
+            "pinyin": "tā"
+        }
+    }, 
+    {
+        "donors": [
+            {
+                "char": "汤", 
+                "codepoint": "6c64", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "氵", 
+                        "width": 383.0
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "汤-right", 
+                        "width": 617.0
+                    }
+                }, 
+                "meaning": "soup", 
+                "pinyin": "tāng"
+            }, 
+            {
+                "char": "沉", 
+                "codepoint": "6c89", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "氵", 
+                        "width": 300.5
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "冗", 
+                        "width": 699.5
+                    }
+                }, 
+                "meaning": "to sink", 
+                "pinyin": "chén"
+            }, 
+            {
+                "char": "江", 
+                "codepoint": "6c5f", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "氵", 
+                        "width": 339.0
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "工", 
+                        "width": 661.0
+                    }
+                }, 
+                "meaning": "river", 
+                "pinyin": "jiāng"
+            }
+        ], 
+        "patient": {
+            "char": "池", 
+            "codepoint": "6c60", 
+            "components": {
+                "left": {
+                    "behavior": "sink", 
+                    "component": "氵", 
+                    "width": 310.0
+                }, 
+                "right": {
+                    "behavior": "static", 
+                    "component": "也", 
+                    "width": 690.0
+                }
+            }, 
+            "meaning": "pool", 
+            "pinyin": "chí"
+        }
+    }, 
+    {
+        "donors": [
+            {
+                "char": "猫", 
+                "codepoint": "732b", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "犭", 
+                        "width": 399.5
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "苗", 
+                        "width": 600.5
+                    }
+                }, 
+                "meaning": "cat", 
+                "pinyin": "māo"
+            }, 
+            {
+                "char": "猴", 
+                "codepoint": "7334", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "犭", 
+                        "width": 360.0
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "侯", 
+                        "width": 640.0
+                    }
+                }, 
+                "meaning": "monkey", 
+                "pinyin": "hóu"
+            }, 
+            {
+                "char": "狮", 
+                "codepoint": "72ee", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "犭", 
+                        "width": 387.5
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "师", 
+                        "width": 612.5
+                    }
+                }, 
+                "meaning": "lion", 
+                "pinyin": "shī"
+            }
+        ], 
+        "patient": {
+            "char": "狗", 
+            "codepoint": "72d7", 
+            "components": {
+                "left": {
+                    "behavior": "sink", 
+                    "component": "犭", 
+                    "width": 422.0
+                }, 
+                "right": {
+                    "behavior": "static", 
+                    "component": "句", 
+                    "width": 578.0
+                }
+            }, 
+            "meaning": "dog", 
+            "pinyin": "gǒu"
+        }
+    }, 
+    {
+        "donors": [
+            {
+                "char": "样", 
+                "codepoint": "6837", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "木", 
+                        "width": 404.5
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "羊", 
+                        "width": 595.5
+                    }
+                }, 
+                "meaning": "likeness", 
+                "pinyin": "yàng"
+            }, 
+            {
+                "char": "佯", 
+                "codepoint": "4f6f", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "亻", 
+                        "width": 353.0
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "羊", 
+                        "width": 647.0
+                    }
+                }, 
+                "meaning": "to pretend", 
+                "pinyin": "yáng"
+            }, 
+            {
+                "char": "烊", 
+                "codepoint": "70ca", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "火", 
+                        "width": 389.0
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "羊", 
+                        "width": 611.0
+                    }
+                }, 
+                "meaning": "molten", 
+                "pinyin": "yáng"
+            }
+        ], 
+        "patient": {
+            "char": "洋", 
+            "codepoint": "6d0b", 
+            "components": {
+                "left": {
+                    "behavior": "static", 
+                    "component": "氵", 
+                    "width": 348.5
+                }, 
+                "right": {
+                    "behavior": "sink", 
+                    "component": "羊", 
+                    "width": 651.5
+                }
+            }, 
+            "meaning": "ocean", 
+            "pinyin": "yáng"
+        }
+    }, 
+    {
+        "donors": [
+            {
+                "char": "吗", 
+                "codepoint": "5417", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "口", 
+                        "width": 333.5
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "马", 
+                        "width": 666.5
+                    }
+                }, 
+                "meaning": "question particle", 
+                "pinyin": "ma"
+            }, 
+            {
+                "char": "码", 
+                "codepoint": "7801", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "石", 
+                        "width": 384.5
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "马", 
+                        "width": 615.5
+                    }
+                }, 
+                "meaning": "a weight", 
+                "pinyin": "mǎ"
+            }, 
+            {
+                "char": "玛", 
+                "codepoint": "739b", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "王", 
+                        "width": 400.5
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "马", 
+                        "width": 599.5
+                    }
+                }, 
+                "meaning": "agate", 
+                "pinyin": "mǎ"
+            }
+        ], 
+        "patient": {
+            "char": "妈", 
+            "codepoint": "5988", 
+            "components": {
+                "left": {
+                    "behavior": "static", 
+                    "component": "女", 
+                    "width": 424.5
+                }, 
+                "right": {
+                    "behavior": "sink", 
+                    "component": "马", 
+                    "width": 575.5
+                }
+            }, 
+            "meaning": "mother", 
+            "pinyin": "mā"
+        }
+    }, 
+    {
+        "donors": [
+            {
+                "char": "情", 
+                "codepoint": "60c5", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "忄", 
+                        "width": 371.0
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "青", 
+                        "width": 629.0
+                    }
+                }, 
+                "meaning": "emotion", 
+                "pinyin": "qíng"
+            }, 
+            {
+                "char": "晴", 
+                "codepoint": "6674", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "日", 
+                        "width": 365.5
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "青", 
+                        "width": 634.5
+                    }
+                }, 
+                "meaning": "fine (weather)", 
+                "pinyin": "qīng"
+            }, 
+            {
+                "char": "清", 
+                "codepoint": "6e05", 
+                "components": {
+                    "left": {
+                        "behavior": "source", 
+                        "component": "氵", 
+                        "width": 334.5
+                    }, 
+                    "right": {
+                        "behavior": "source", 
+                        "component": "青", 
+                        "width": 665.5
+                    }
+                }, 
+                "meaning": "clear, pure", 
+                "pinyin": "qīng"
+            }
+        ], 
+        "patient": {
+            "char": "请", 
+            "codepoint": "8bf7", 
+            "components": {
+                "left": {
+                    "behavior": "static", 
+                    "component": "讠", 
+                    "width": 395.0
+                }, 
+                "right": {
+                    "behavior": "sink", 
+                    "component": "青", 
+                    "width": 605.0
+                }
+            }, 
+            "meaning": "please", 
+            "pinyin": "qǐng"
+        }
+    }
+]
