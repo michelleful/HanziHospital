@@ -65,7 +65,3 @@ target/
 # LaTeX
 *.aux
 *.synctex.gz
-
-# Keep index file and bundle.
-!build/index.html
-!build/bundle.js
