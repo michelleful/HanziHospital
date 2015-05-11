@@ -35,6 +35,10 @@ var HanziHospitalView = Marionette.LayoutView.extend({
 
 
     onRender: function() {
+        this.renderCurrentOperation();
+    },
+
+    renderCurrentOperation() {
         this.renderOperation(this.options.operations[this.curOperation]);
     },
 
@@ -71,6 +75,17 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         var resultsModel = new Backbone.Model(data);
         var resultsView = new ResultsView({model: resultsModel});
         this.getRegion('message').show(resultsView);
+        this.curOperation++;
+        if (this.curOperation >= this.options.operations.length) {
+            // @TODO: show level end view.
+            console.log('end of level');
+        } else {
+            resultsView.on('next', () => {
+                resultsView.$el.fadeOut().promise().then(() => {
+                    this.renderCurrentOperation();
+                });
+            });
+        }
     },
 
 });
