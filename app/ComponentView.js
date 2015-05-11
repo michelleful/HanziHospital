@@ -12,59 +12,60 @@ var Marionette = require('./marionette-shim');
 var ComponentView = Marionette.ItemView.extend({
     className: 'hh-component',
 
-    template: _.template(''),
+    template: _.template('<div class="container"></div>'),
+
+    ui: {
+        container: '.container'
+    },
 
     onRender: function() {
-        this.$el.attr('data-component', this.model.get('component'));
 
         var behavior = this.model.get('behavior');
 
         // Set svg.
         this.$svg = $(this.model.get('svg'));
+        this.$svg.attr('data-component', this.model.get('component'));
         if (behavior == 'sink') {
             this.$svg.css('opacity', 0);
         }
-        this.$el.append(this.$svg);
+        this.ui.container.append(this.$svg);
 
         // Setup drag-and-drop behavior.
         if (behavior == 'source') {
-            this.$el.draggable({
-                helper: 'clone',
-                revert: 'invalid',
-                start: function() {
-                    $(this).css('opacity', .5);
-                }, 
-                stop: function() {
-                    $(this).css('opacity', 1);
-                }
+            var $residue = this.$svg.clone();
+            $residue.css({
+                'opacity': .5,
+                'position': 'absolute',
+            });
+            this.ui.container.append($residue);
+            this.$svg.css('z-index', 10);
+            this.$svg.draggable({
+                revert: true,
             });
         } else if(behavior == 'sink') {
             var _this = this;
 
-            this.$el.droppable({
+            this.ui.container.droppable({
                 hoverClass: 'drop-hover',
-
                 drop: function(event, ui){
                     var $draggable = ui.draggable;
-                    var $helper = ui.helper;
-                    console.log($helper[0]);
 
                     var isCorrect = (
                         _this.model.get('component') == $draggable.data('component'));
 
                     if (isCorrect) {
                         $draggable.fadeOut().promise().then(() => {
-                            $(this).append($draggable);
-                            $draggable.draggable('destroy');
-                            $draggable.css({'top': '', 'left': ''});
-                            $draggable.fadeIn().promise().then(() => {
-                                _this.trigger('drop', {isCorrect: isCorrect});
+                            _this.$svg.fadeTo('slow', 1).promise().then(function() {
+                                setTimeout(function() {
+                                    _this.trigger('drop', {isCorrect: isCorrect});
+                                }, 500);
                             });
                         });
                     } else {
-                        $draggable.fadeTo('slow', 1);
-                        $draggable.addClass('incorrect');
-                        //_this.trigger('drop', {isCorrect: isCorrect});
+                        $draggable.parent().addClass('incorrect');
+                        setTimeout(function() {
+                            _this.trigger('drop', {isCorrect: isCorrect});
+                        }, 1000);
                     }
                 },
             });
