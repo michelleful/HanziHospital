@@ -88,6 +88,7 @@ def create_character(char, meaning, pinyin, missing_position='left'):
     return {
         'char': char,
         'codepoint': codepoint,
+        'id': codepoint,
         'meaning': meaning,
         'pinyin': pinyin,
         'components': {
