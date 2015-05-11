@@ -1,0 +1,95 @@
+.hh-character {
+    &:after {
+        content: ' ';
+        display: block;
+        clear: both;
+    }
+}
+
+.hh-component-region {
+    float: left;
+}
+
+.hh-component {
+    position: relative;
+    min-width: 50px;
+    height: 120px;
+
+    &.sink, &.source {
+        border: thin dashed #333;
+    }
+    
+    .container {
+        height: 100%;
+        position: relative;
+    }
+
+    svg {
+        height: 100%;
+        width: auto;
+        left: 0;
+    }
+
+}
+
+.gurney {
+    .hh-component {
+        .container {
+            background-color: #eee;
+            &.correct {
+                background-color: #cfc;
+            }
+            &.incorrect {
+                background-color: #fcc !important;
+            }
+            &.drop-hover {
+                background-color: #ddf;
+            }
+        }
+    }
+}
+
+.hh-operating-room {
+    .gurney {
+        margin-top: 50px;
+        border: thin solid #ddd;
+        width: 200px;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #dadada;
+        float: left;
+        margin-right: 100px;
+    }
+
+    &:after {
+        content: ' ';
+        display: block;
+        clear: both;
+    }
+}
+
+.hh-donors {
+    margin-top: 50px;
+    ul li {
+        display: inline-block;
+        margin-right: 50px;
+        border: thin solid #ccc;
+        &:hover {
+            background: #ccc;
+        }
+    }
+}
+
+.hh-results {
+    font-size: x-large;
+
+    &.correct {
+        color: green;
+    }
+    
+    &.incorrect {
+        color: red;
+    }
+
+}
