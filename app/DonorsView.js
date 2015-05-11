@@ -18,6 +18,9 @@ var DonorsView = Marionette.CompositeView.extend({
         + ''
     ),
     childView: CharacterView,
+    childViewOptions: {
+        tagName: 'li'
+    },
     childViewContainer: 'ul'
 });
 

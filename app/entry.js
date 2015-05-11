@@ -7,12 +7,18 @@ var HanziHospitalApp = require('./HanziHospitalApp.js');
 var $appEl = $('<div id="hanzi-hospital-app"></div>');
 $appEl.appendTo(document.body);
 
-var data = {};
+// Read data from json file.
+var promise = $.ajax({
+    dataType: 'json',
+    url: './operations.json'
+})
 
-var app = new HanziHospitalApp({
-    el: $appEl, 
-    data: data,
+promise.then(function(data) {
+    var app = new HanziHospitalApp({
+        el: $appEl, 
+        operations: data,
+    });
+    app.start();
+
+    console.log('app:', app);
 });
-app.start();
-
-console.log('app:', app);

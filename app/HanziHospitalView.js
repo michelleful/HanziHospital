@@ -27,11 +27,21 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         donors: '.donors-region'
     },
 
-    onRender: function() {
+    initialize: function() {
+        this.curOperation = 0;
+    },
 
+
+    onRender: function() {
+        this.renderOperation(this.options.operations[this.curOperation]);
+    },
+
+    renderOperation(operation) {
         // Render operating room..
         // @TODO: get data dynamically.
-        var operatingRoomModel = new Backbone.Model({});
+        var operatingRoomModel = new Backbone.Model({
+            patient: operation.patient
+        });
         var operatingRoomView = new OperatingRoomView({
             model: operatingRoomModel
         });
@@ -39,38 +49,14 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         this.getRegion('main').show(operatingRoomView);
 
         // Render donors.
-        var donorsCollection = new Backbone.Collection([
-            new Backbone.Model({
-                components: {
-                    left: {
-                        behavior: 'static',
-                        src: DUMMY_SRC,
-                    },
-                    right: {
-                        behavior: 'static',
-                        src: DUMMY_SRC,
-                    }
-                }
-            }),
-            new Backbone.Model({
-                components: {
-                    left: {
-                        behavior: 'static',
-                        src: DUMMY_SRC,
-                    },
-                    right: {
-                        behavior: 'static',
-                        src: DUMMY_SRC,
-                    }
-                }
-            }),
-        ]);
+        var donorsCollection = new Backbone.Collection();
+        _.each(operation.donors, function(donor) {
+            donorsCollection.add(new Backbone.Model(donor));
+        });
         var donorsView = new DonorsView({
             collection: donorsCollection
         });
         this.getRegion('donors').show(donorsView);
-
-
     },
 
     onEvaluated: function(data) {

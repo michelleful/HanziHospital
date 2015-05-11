@@ -7,7 +7,8 @@ var HanziHospitalView = require('./HanziHospitalView');
 var HanziHospitalApp = Marionette.Application.extend({
     initialize: function(options) {
         this.rootView = new HanziHospitalView({
-            el: options.el
+            el: options.el,
+            operations: options.operations
         });
 
         this.rootView.render();

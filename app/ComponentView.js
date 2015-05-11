@@ -19,7 +19,7 @@ var ComponentView = Marionette.ItemView.extend({
 
         // Add image if not a sink.
         if (behavior != 'sink') {
-            this.$img = $('<img draggable="false" src="' + this.model.get('src') + '"/>');
+            this.$img = $(this.model.get('svg'));
             this.$el.append(this.$img);
         }
 
