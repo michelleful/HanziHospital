@@ -4,14 +4,17 @@ var path = require('path');
 module.exports = {
     context: path.resolve('app'),
     entry: {
-        app: [
+        dev: [
             'webpack/hot/dev-server',
+            './entry.js'
+        ],
+        standalone: [
             './entry.js'
         ]
     },
     output: {
         path: 'app_build',
-        filename: 'bundle.js'
+        filename: '[name]-bundle.js'
     },
     module: {
         loaders: [
