@@ -17,12 +17,14 @@ var DUMMY_SRC = 'http://lorempixel.com/200/200/';
 
 var HanziHospitalView = Marionette.LayoutView.extend({
     template: _.template(''
+        + '<div class="message-region"></div>'
         + '<div class="main-region"></div>'
         + '<div class="donors-region"></div>'
         + ''
     ),
 
     regions: {
+        message: '.message-region',
         main: '.main-region',
         donors: '.donors-region'
     },
@@ -68,7 +70,7 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         console.log('HHV:onEvaluated', data);
         var resultsModel = new Backbone.Model(data);
         var resultsView = new ResultsView({model: resultsModel});
-        this.getRegion('main').show(resultsView);
+        this.getRegion('message').show(resultsView);
     },
 
 });

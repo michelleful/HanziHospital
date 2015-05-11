@@ -55,6 +55,7 @@ var ComponentView = Marionette.ItemView.extend({
 
                     if (isCorrect) {
                         $draggable.fadeOut().promise().then(() => {
+                            _this.ui.container.addClass('correct');
                             _this.$svg.fadeTo('slow', 1).promise().then(function() {
                                 setTimeout(function() {
                                     _this.trigger('drop', {isCorrect: isCorrect});
