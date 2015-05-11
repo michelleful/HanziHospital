@@ -17,15 +17,16 @@ var ComponentView = Marionette.ItemView.extend({
     onRender: function() {
         var behavior = this.model.get('behavior');
 
-        // Add image if not a sink.
-        if (behavior != 'sink') {
-            this.$img = $(this.model.get('svg'));
-            this.$el.append(this.$img);
+        // Set svg.
+        this.$svg = $(this.model.get('svg'));
+        if (behavior == 'static') {
+            this.$svg.css('opacity', 0);
         }
+        this.$el.append(this.$svg);
 
         // Setup drag-and-drop behavior.
         if (behavior == 'source') {
-            this.$img.draggable({
+            this.$svg.draggable({
                 revert: 'invalid',
             });
         } else if(behavior == 'sink') {

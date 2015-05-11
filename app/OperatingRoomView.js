@@ -16,51 +16,31 @@ var DUMMY_SRC = 'http://lorempixel.com/200/200/';
 var OperatingRoomView = Marionette.LayoutView.extend({
     className: 'hh-operating-room',
     template: _.template(''
-        + '<div class="receiver-region gurney"></div>'
+        + '<div class="patient-region gurney"></div>'
         + '<div class="donor-region gurney"></div>'
         + ''
     ),
 
     regions: {
-        receiver: '.receiver-region',
+        patient: '.patient-region',
         donor: '.donor-region'
     },
 
     onRender: function() {
+        this.renderPatient(this.model.get('patient'));
+    },
 
+    renderPatient: function(patient) {
         // Render receiver.
-        var receiverModel = new Backbone.Model({
-            components: {
-                left: {
-                    behavior: 'sink',
-                },
-                right: {
-                    behavior: 'static',
-                    // @TODO: get from data.
-                    src: DUMMY_SRC,
-                }
-            }
-        });
-        var receiverView = new CharacterView({model: receiverModel});
-        this.getRegion('receiver').show(receiverView);
-        receiverView.once('drop', this.onDrop, this);
+        var patientModel = new Backbone.Model(patient);
+        var patientView = new CharacterView({model: patientModel});
+        this.getRegion('patient').show(patientView);
+        patientView.once('drop', this.onDrop, this);
+    },
 
-        // Render donor.
+    renderDonor: function(donor) {
         // @TODO: will do this dynamically later after selecting donor.
-        var donorModel = new Backbone.Model({
-            components: {
-                left: {
-                    behavior: 'source',
-                    // @TODO: get from data.
-                    src: DUMMY_SRC,
-                },
-                right: {
-                    behavior: 'source',
-                    // @TODO: get from data.
-                    src: DUMMY_SRC,
-                }
-            }
-        });
+        var donorModel = new Backbone.Model({});
         var donorView = new CharacterView({model: donorModel});
         this.getRegion('donor').show(donorView);
     },
