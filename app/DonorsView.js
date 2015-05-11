@@ -28,9 +28,16 @@ var DonorsView = Marionette.CompositeView.extend({
     childViewContainer: 'ul',
 
     onClickDonor: function(e){
-        var donorId = $(e.currentTarget).data('id');
-        var donorModel = this.collection.get(donorId);
-        this.trigger('donor:selected', donorModel.toJSON());
+
+        $('.hh-donor.ghosted').fadeTo('short', 1);
+
+        var $selectedDonor = $(e.currentTarget);
+        $selectedDonor.fadeTo('short', .5).promise().then(() => {
+            $selectedDonor.addClass('ghosted');
+            var donorId = $selectedDonor.data('id');
+            var donorModel = this.collection.get(donorId);
+            this.trigger('donor:selected', donorModel.toJSON());
+        });
     }
 });
 

@@ -46,11 +46,15 @@ var OperatingRoomView = Marionette.LayoutView.extend({
         patientView.once('drop', this.onDrop, this);
     },
 
-    renderDonor: function(donor) {
-        // @TODO: will do this dynamically later after selecting donor.
+    renderDonor: function(donor, opts) {
+        opts = _.extend({fadeIn: true}, opts);
         var donorModel = new Backbone.Model(donor);
         var donorView = new CharacterView({model: donorModel});
+        if (opts.fadeIn) {
+            donorView.$el.css('opacity', .5);
+        }
         this.getRegion('donor').show(donorView);
+        donorView.$el.fadeTo('short', 1);
     },
 
     onDonorChange: function() {
