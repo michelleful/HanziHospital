@@ -39,14 +39,14 @@ var HanziHospitalView = Marionette.LayoutView.extend({
     renderOperation(operation) {
         // Render operating room..
         // @TODO: get data dynamically.
-        var operatingRoomModel = new Backbone.Model({
+        this.operatingRoomModel = new Backbone.Model({
             patient: operation.patient
         });
-        var operatingRoomView = new OperatingRoomView({
-            model: operatingRoomModel
+        this.operatingRoomView = new OperatingRoomView({
+            model: this.operatingRoomModel
         });
-        operatingRoomView.on('evaluated', this.onEvaluated, this);
-        this.getRegion('main').show(operatingRoomView);
+        this.operatingRoomView.on('evaluated', this.onEvaluated, this);
+        this.getRegion('main').show(this.operatingRoomView);
 
         // Render donors.
         var donorsCollection = new Backbone.Collection();
@@ -56,7 +56,12 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         var donorsView = new DonorsView({
             collection: donorsCollection
         });
+        donorsView.on('donor:selected', this.onDonorSelected, this);
         this.getRegion('donors').show(donorsView);
+    },
+
+    onDonorSelected: function(donorModel) {
+        this.operatingRoomModel.set('donor', donorModel);
     },
 
     onEvaluated: function(data) {

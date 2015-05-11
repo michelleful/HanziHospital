@@ -14,6 +14,7 @@ var promise = $.ajax({
 })
 
 promise.then(function(data) {
+    console.log('data: ', data);
     var app = new HanziHospitalApp({
         el: $appEl, 
         operations: data,

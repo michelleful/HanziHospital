@@ -26,8 +26,16 @@ var OperatingRoomView = Marionette.LayoutView.extend({
         donor: '.donor-region'
     },
 
+    modelEvents: {
+        'change:donor': 'onDonorChange'
+    },
+
     onRender: function() {
         this.renderPatient(this.model.get('patient'));
+
+        if (this.model.get('donor')) {
+            this.renderDonor(this.model.get('donor'));
+        }
     },
 
     renderPatient: function(patient) {
@@ -40,13 +48,16 @@ var OperatingRoomView = Marionette.LayoutView.extend({
 
     renderDonor: function(donor) {
         // @TODO: will do this dynamically later after selecting donor.
-        var donorModel = new Backbone.Model({});
+        var donorModel = new Backbone.Model(donor);
         var donorView = new CharacterView({model: donorModel});
         this.getRegion('donor').show(donorView);
     },
 
+    onDonorChange: function() {
+        this.renderDonor(this.model.get('donor'));
+    },
+
     onDrop: function(dropData) {
-        console.log('OR onDrop', dropData);
         this.trigger('evaluated', dropData);
     }
 

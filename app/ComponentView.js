@@ -19,7 +19,7 @@ var ComponentView = Marionette.ItemView.extend({
 
         // Set svg.
         this.$svg = $(this.model.get('svg'));
-        if (behavior == 'static') {
+        if (behavior == 'sink') {
             this.$svg.css('opacity', 0);
         }
         this.$el.append(this.$svg);

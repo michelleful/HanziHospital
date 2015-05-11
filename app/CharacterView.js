@@ -25,6 +25,10 @@ var CharacterView = Marionette.LayoutView.extend({
     },
 
     onRender: function() {
+        // Set id on el if model has id.
+        if (this.model.id) {
+            this.$el.attr('data-id', this.model.id);
+        }
         _.each(this.model.get('components'), function(component, position) {
             var componentModel = new Backbone.Model(component);
             var componentView = new ComponentView({model: componentModel});
