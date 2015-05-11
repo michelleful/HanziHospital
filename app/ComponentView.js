@@ -15,6 +15,8 @@ var ComponentView = Marionette.ItemView.extend({
     template: _.template(''),
 
     onRender: function() {
+        this.$el.attr('data-component', this.model.get('component'));
+
         var behavior = this.model.get('behavior');
 
         // Set svg.
@@ -26,7 +28,7 @@ var ComponentView = Marionette.ItemView.extend({
 
         // Setup drag-and-drop behavior.
         if (behavior == 'source') {
-            this.$svg.draggable({
+            this.$el.draggable({
                 revert: 'invalid',
             });
         } else if(behavior == 'sink') {
@@ -40,7 +42,7 @@ var ComponentView = Marionette.ItemView.extend({
 
                     // Evaluate result.
                     var dropIsCorrect = (
-                        _this.model.get('expected') == $draggable.attr('src'));
+                        _this.model.get('component') == $draggable.data('component'));
 
                     // Update draggable element.
                     $draggable.fadeOut().promise().then(() => {
