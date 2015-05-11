@@ -12,7 +12,6 @@ var ComponentView = require('./ComponentView');
 
 
 var CharacterView = Marionette.LayoutView.extend({
-    className: 'hh-character',
     template: _.template(''
         + '<table><tbody><tr>'
         + '<td>'
@@ -38,6 +37,8 @@ var CharacterView = Marionette.LayoutView.extend({
     },
 
     onRender: function() {
+        this.$el.addClass('hh-character');
+
         // Set id on el if model has id.
         if (this.model.id) {
             this.$el.attr('data-id', this.model.id);
