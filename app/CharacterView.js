@@ -14,8 +14,16 @@ var ComponentView = require('./ComponentView');
 var CharacterView = Marionette.LayoutView.extend({
     className: 'hh-character',
     template: _.template(''
+        + '<table><tbody><tr>'
+        + '<td>'
+        + '<div class="meaning"></div>'
+        + '<div class="pinyin"></div>'
+        + '</td>'
+        + '<td>'
         + '<div class="hh-component-region left-component"></div>'
         + '<div class="hh-component-region right-component"></div>'
+        + '</td>'
+        + '</tr></tbody></table>'
         + ''
     ),
 
@@ -24,11 +32,21 @@ var CharacterView = Marionette.LayoutView.extend({
         right: '.right-component'
     },
 
+    ui: {
+        $meaning: '.meaning',
+        $pinyin: '.pinyin'
+    },
+
     onRender: function() {
         // Set id on el if model has id.
         if (this.model.id) {
             this.$el.attr('data-id', this.model.id);
         }
+
+        this.ui.$meaning.html(this.model.get('meaning'));
+        this.ui.$pinyin.html(this.model.get('pinyin'));
+
+
         _.each(this.model.get('components'), function(component, position) {
             var componentModel = new Backbone.Model(component);
             var componentView = new ComponentView({

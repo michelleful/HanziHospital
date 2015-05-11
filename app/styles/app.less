@@ -1,4 +1,5 @@
 .hh-character {
+    min-width: 205px;
     &:after {
         content: ' ';
         display: block;
@@ -37,10 +38,10 @@
         .container {
             background-color: #eee;
             &.correct {
-                background-color: #cfc;
+                background-color: rgba(204, 255, 204, .5);
             }
             &.incorrect {
-                background-color: #fcc !important;
+                background-color: rgba(255,204,204,.5);
             }
             &.drop-hover {
                 background-color: #ddf;
@@ -52,14 +53,12 @@
 .hh-operating-room {
     .gurney {
         margin-top: 50px;
-        border: thin solid #ddd;
-        width: 200px;
-        height: 200px;
-        margin-left: auto;
-        margin-right: auto;
+        border: medium solid #ccc;
+        min-width: 200px;
+        min-height: 130px;
         background-color: #dadada;
         float: left;
-        margin-right: 100px;
+        margin-right: 50px;
     }
 
     &:after {
@@ -71,9 +70,13 @@
 
 .hh-donors {
     margin-top: 50px;
-    ul li {
+    ul {
+        padding-left: 0;
+    }
+
+    li {
         display: inline-block;
-        margin-right: 50px;
+        margin-right: 25px;
         border: thin solid #ccc;
         &:hover {
             background: #ccc;
