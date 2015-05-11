@@ -29,7 +29,14 @@ var ComponentView = Marionette.ItemView.extend({
         // Setup drag-and-drop behavior.
         if (behavior == 'source') {
             this.$el.draggable({
+                helper: 'clone',
                 revert: 'invalid',
+                start: function() {
+                    $(this).css('opacity', .5);
+                }, 
+                stop: function() {
+                    $(this).css('opacity', 1);
+                }
             });
         } else if(behavior == 'sink') {
             var _this = this;
@@ -38,21 +45,27 @@ var ComponentView = Marionette.ItemView.extend({
                 hoverClass: 'drop-hover',
 
                 drop: function(event, ui){
-                    var $draggable = $(ui.draggable);
+                    var $draggable = ui.draggable;
+                    var $helper = ui.helper;
+                    console.log($helper[0]);
 
-                    // Evaluate result.
-                    var dropIsCorrect = (
+                    var isCorrect = (
                         _this.model.get('component') == $draggable.data('component'));
 
-                    // Update draggable element.
-                    $draggable.fadeOut().promise().then(() => {
-                        $(this).append($draggable);
-                        $draggable.draggable('destroy');
-                        $draggable.css({'top': '', 'left': ''});
-                        $draggable.fadeIn().promise().then(() => {
-                            _this.trigger('drop', {isCorrect: dropIsCorrect});
+                    if (isCorrect) {
+                        $draggable.fadeOut().promise().then(() => {
+                            $(this).append($draggable);
+                            $draggable.draggable('destroy');
+                            $draggable.css({'top': '', 'left': ''});
+                            $draggable.fadeIn().promise().then(() => {
+                                _this.trigger('drop', {isCorrect: isCorrect});
+                            });
                         });
-                    });
+                    } else {
+                        $draggable.fadeTo('slow', 1);
+                        $draggable.addClass('incorrect');
+                        //_this.trigger('drop', {isCorrect: isCorrect});
+                    }
                 },
             });
             this.$el.addClass('sink');
