@@ -31,7 +31,10 @@ var CharacterView = Marionette.LayoutView.extend({
         }
         _.each(this.model.get('components'), function(component, position) {
             var componentModel = new Backbone.Model(component);
-            var componentView = new ComponentView({model: componentModel});
+            var componentView = new ComponentView({
+                model: componentModel,
+                behavior: this.options.behavior
+            });
             this.getRegion(position).show(componentView);
             componentView.on('drop', this.onDrop, this)
         }, this);

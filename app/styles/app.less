@@ -11,25 +11,17 @@
 }
 
 .hh-component {
-    border: thin dashed #333;
     position: relative;
     min-width: 50px;
     height: 120px;
+
+    &.sink, &.source {
+        border: thin dashed #333;
+    }
     
     .container {
-        background-color: #eee;
         height: 100%;
         position: relative;
-
-        &.correct {
-            background-color: #cfc;
-        }
-        &.incorrect {
-            background-color: #fcc;
-        }
-        &.drop-hover {
-            background-color: #ddf;
-        }
     }
 
     svg {
@@ -38,6 +30,23 @@
         left: 0;
     }
 
+}
+
+.gurney {
+    .hh-component {
+        .container {
+            background-color: #eee;
+            &.correct {
+                background-color: #cfc;
+            }
+            &.incorrect {
+                background-color: #fcc !important;
+            }
+            &.drop-hover {
+                background-color: #ddf;
+            }
+        }
+    }
 }
 
 .hh-operating-room {
@@ -65,6 +74,10 @@
     ul li {
         display: inline-block;
         margin-right: 50px;
+        border: thin solid #ccc;
+        &:hover {
+            background: #ccc;
+        }
     }
 }
 
@@ -78,4 +91,5 @@
     &.incorrect {
         color: red;
     }
+
 }

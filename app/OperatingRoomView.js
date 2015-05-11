@@ -9,10 +9,6 @@ var Marionette = require('./marionette-shim');
 
 var CharacterView = require('./CharacterView');
 
-//@TODO: remove this!
-var DUMMY_SRC = 'http://lorempixel.com/200/200/';
-
-
 var OperatingRoomView = Marionette.LayoutView.extend({
     className: 'hh-operating-room',
     template: _.template(''
@@ -35,6 +31,11 @@ var OperatingRoomView = Marionette.LayoutView.extend({
 
         if (this.model.get('donor')) {
             this.renderDonor(this.model.get('donor'));
+        } else {
+            var BlankView = Marionette.ItemView.extend({
+                template: _.template('<p>Select a donor from below</p>')
+            });
+            this.getRegion('donor').show(new BlankView());
         }
     },
 
@@ -43,7 +44,7 @@ var OperatingRoomView = Marionette.LayoutView.extend({
         var patientModel = new Backbone.Model(patient);
         var patientView = new CharacterView({model: patientModel});
         this.getRegion('patient').show(patientView);
-        patientView.once('drop', this.onDrop, this);
+        patientView.on('drop', this.onDrop, this);
     },
 
     renderDonor: function(donor, opts) {

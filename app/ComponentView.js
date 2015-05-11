@@ -20,7 +20,8 @@ var ComponentView = Marionette.ItemView.extend({
 
     onRender: function() {
 
-        var behavior = this.model.get('behavior');
+        var behavior = this.options.behavior || this.model.get('behavior');
+        this.$el.addClass(behavior);
 
         // Set svg.
         this.$svg = $(this.model.get('svg'));

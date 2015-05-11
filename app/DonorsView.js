@@ -16,14 +16,14 @@ var DonorsView = Marionette.CompositeView.extend({
         'click .hh-donor': 'onClickDonor'
     },
     template: _.template(''
-        + 'DONORS!'
         + '<ul></ul>'
         + ''
     ),
     childView: CharacterView,
     childViewOptions: {
         tagName: 'li',
-        className: 'hh-donor'
+        className: 'hh-donor',
+        behavior: 'static'
     },
     childViewContainer: 'ul',
 
