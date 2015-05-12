@@ -1,0 +1,106 @@
+.hh-character {
+    .meaning {
+        font-style: italic;
+    }
+
+    .meaning, .pinyin {
+        text-align: center;
+    }
+
+    min-width: 205px;
+    &:after {
+        content: ' ';
+        display: block;
+        clear: both;
+    }
+}
+
+.hh-component-region {
+    float: left;
+}
+
+.hh-component {
+    position: relative;
+    min-width: 50px;
+    height: 120px;
+
+    &.sink, &.source {
+        border: thin dashed #333;
+    }
+    
+    .container {
+        height: 100%;
+        position: relative;
+    }
+
+    svg {
+        height: 100%;
+        width: auto;
+        left: 0;
+    }
+
+}
+
+.gurney {
+    .hh-component {
+        .container {
+            background-color: #eee;
+            &.correct {
+                background-color: rgba(204, 255, 204, .5);
+            }
+            &.incorrect {
+                background-color: rgba(255,204,204,.5);
+            }
+            &.drop-hover {
+                background-color: #ddf;
+            }
+        }
+    }
+}
+
+.hh-operating-room {
+    .gurney {
+        margin-top: 50px;
+        border: medium solid #ccc;
+        min-width: 200px;
+        min-height: 130px;
+        background-color: #dadada;
+        float: left;
+        margin-right: 50px;
+    }
+
+    &:after {
+        content: ' ';
+        display: block;
+        clear: both;
+    }
+}
+
+.hh-donors {
+    margin-top: 50px;
+    ul {
+        padding-left: 0;
+    }
+
+    li {
+        display: inline-block;
+        margin-right: 25px;
+        border: thin solid #ccc;
+        &:hover {
+            background: #ccc;
+        }
+    }
+}
+
+.hh-results {
+    font-size: x-large;
+
+    &.correct {
+        color: green;
+    }
+    
+    &.incorrect {
+        color: red;
+    }
+
+}
