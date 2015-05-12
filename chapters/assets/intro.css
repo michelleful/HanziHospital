@@ -1,0 +1,127 @@
+body {
+    background-color: #2C3539;
+    color: white;
+    text-align: center;
+    font-family: 'Delius', serif;
+}
+#title {
+    padding-top: 10%;
+    font-family: 'Bangers', serif;
+    font-size: 400%;
+}
+a {
+    color: yellow;
+}
+.text-line {
+    padding-top: 3em;
+}
+.image {
+    display: inline-block;
+    background-color: black;
+    width: 50%;
+    height: 14em;
+    line-height: 14em;
+    vertical-align: middle;
+}
+.column-left{ 
+    float: left; 
+    width: 20%; 
+    background-color: white; 
+    height: 100%; 
+    margin-left: 1em;
+}
+.column-right{ 
+    float: right; 
+    width: 20%; 
+    background-color: white; 
+    height: 100%;
+    margin-right: 1em;
+}
+.column-center{ 
+    display: inline-block; 
+    width: 50%;
+}
+.dialogue {
+    display: inline-block;
+    width: 80%;
+    background-color: white;
+    color: black;
+}
+.character {
+    margin: 1em;    
+    border: thick red;
+}
+.student {
+    margin-top: 100%;
+}
+/* Speech bubble CSS code from Nicolas Gallagher
+   http://nicolasgallagher.com/pure-css-speech-bubbles/demo/default.css */
+
+.triangle-isosceles {
+  position:relative;
+  padding:15px 15px 15px 15px;
+  margin:1em 0 1em;
+  color:#000;
+  background:#f3961c; /* default background for browsers without gradient support */
+  /* css3 */
+  background:-webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
+  background:-moz-linear-gradient(#f9d835, #f3961c);
+  background:-o-linear-gradient(#f9d835, #f3961c);
+  background:linear-gradient(#f9d835, #f3961c);
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+
+/* Variant : for left/right positioned triangle
+------------------------------------------ */
+
+.triangle-isosceles.left {
+  margin-left:50px;
+  background:#f3961c;
+}
+
+/* Variant : for right positioned triangle
+------------------------------------------ */
+
+.triangle-isosceles.right {
+  margin-right:50px;
+  background:#f3961c;
+}
+
+/* creates triangle */
+.triangle-isosceles:after {
+  content:"";
+  position:absolute;
+  bottom:-15px; /* value = - border-top-width - border-bottom-width */
+  left:50px; /* controls horizontal position */
+  border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
+  border-style:solid;
+  border-color:#f3961c transparent;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  width:0;
+}
+
+/* Variant : left
+------------------------------------------ */
+
+.triangle-isosceles.left:after {
+  top:16px; /* controls vertical position */
+  left:-50px; /* value = - border-left-width - border-right-width */
+  bottom:auto;
+  border-width:10px 50px 10px 0;
+  border-color:transparent #f3961c;
+}
+
+/* Variant : right
+------------------------------------------ */
+
+.triangle-isosceles.right:after {
+  top:16px; /* controls vertical position */
+  right:-50px; /* value = - border-left-width - border-right-width */
+  bottom:auto;
+  left:auto;
+  border-width:10px 0 10px 50px;
+  border-color:transparent #f3961c;
+}
