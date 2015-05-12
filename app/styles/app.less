@@ -27,6 +27,10 @@
     &.sink, &.source {
         border: thin dashed #333;
     }
+
+    &.source {
+        cursor: pointer;
+    }
     
     .container {
         height: 100%;
@@ -59,21 +63,29 @@
 }
 
 .hh-operating-room {
-    .gurney {
-        margin-top: 50px;
-        border: medium solid #ccc;
-        min-width: 200px;
-        min-height: 130px;
-        background-color: #dadada;
+    .gurney-container {
         float: left;
         margin-right: 50px;
     }
+    .gurney {
+        border: medium solid #ccc;
+        width: 250px;
+        min-height: 130px;
+        background-color: #dadada;
+    }
 
+    margin-bottom: 50px;
     &:after {
         content: ' ';
-        display: block;
         clear: both;
+        display: block;
     }
+
+}
+
+.donors-region {
+    margin-top: 50px;
+    clear: both;
 }
 
 .hh-donors {

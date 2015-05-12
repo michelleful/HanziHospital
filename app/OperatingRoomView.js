@@ -12,8 +12,8 @@ var CharacterView = require('./CharacterView');
 var OperatingRoomView = Marionette.LayoutView.extend({
     className: 'hh-operating-room',
     template: _.template(''
-        + '<div class="patient-region gurney"></div>'
-        + '<div class="donor-region gurney"></div>'
+        + '<div class="gurney-container"><div class="gurney-label">Patient</div><div class="patient-region gurney"></div></div>'
+        + '<div class="gurney-container"><div class="gurney-label">Donor</div><div class="donor-region gurney"></div></div>'
         + ''
     ),
 
@@ -33,7 +33,7 @@ var OperatingRoomView = Marionette.LayoutView.extend({
             this.renderDonor(this.model.get('donor'));
         } else {
             var BlankView = Marionette.ItemView.extend({
-                template: _.template('<p>Select a donor from below</p>')
+                template: _.template('<p>Select a donor from the list below, and drag a component to transplant it.</p>')
             });
             this.getRegion('donor').show(new BlankView());
         }
