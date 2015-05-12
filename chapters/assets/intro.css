@@ -3,6 +3,7 @@ body {
     color: white;
     text-align: center;
     font-family: 'Delius', serif;
+    font-size: 200%;
 }
 #title {
     padding-top: 10%;
