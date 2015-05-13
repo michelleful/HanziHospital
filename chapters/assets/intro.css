@@ -46,7 +46,6 @@ a {
 }
 .dialogue {
     display: inline-block;
-    width: 80%;
     background-color: white;
     color: black;
 }
