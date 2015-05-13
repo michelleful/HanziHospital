@@ -6,3 +6,4 @@ An HTML5 game that teaches the logic of Chinese characters
 2. run `npm install` in the project directory to download the node dependencies.
 3. run `npm run dev-server` to start the development server, with live reloading.
 4. Open your browser to http://localhost:8080/app_build/
+5. To build the JS bundle for production deployment on gh-pages, run 'webpack -p'
