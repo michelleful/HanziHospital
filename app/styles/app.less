@@ -1,4 +1,14 @@
+.label {
+    font-weight: bold;
+    font-size: 150%;
+}
+
 .hh-character {
+
+    .meaning-pinyin-container {
+        font-size: 150%;
+    }
+
     .meaning {
         font-style: italic;
     }
@@ -23,9 +33,14 @@
     position: relative;
     min-width: 50px;
     height: 120px;
+    overflow: visible;
 
     &.sink, &.source {
         border: thin dashed #333;
+    }
+
+    &.source {
+        cursor: pointer;
     }
     
     .container {
@@ -34,6 +49,7 @@
     }
 
     svg {
+        overflow: visible;
         height: 100%;
         width: auto;
         left: 0;
@@ -59,21 +75,40 @@
 }
 
 .hh-operating-room {
-    .gurney {
-        margin-top: 50px;
-        border: medium solid #ccc;
-        min-width: 200px;
-        min-height: 130px;
-        background-color: #dadada;
+    .gurney-container {
         float: left;
         margin-right: 50px;
     }
+    .gurney {
+        border: medium solid #ccc;
+        width: 400px;
+        background-color: #dadada;
+        height: 260px;
+    }
 
+    margin-bottom: 50px;
     &:after {
         content: ' ';
-        display: block;
         clear: both;
+        display: block;
     }
+
+    .hh-character {
+
+        .meaning-pinyin-container {
+            width: 100px;
+        }
+
+        .hh-component {
+            height: 250px;
+        }
+    }
+
+}
+
+.donors-region {
+    margin-top: 50px;
+    clear: both;
 }
 
 .hh-donors {
@@ -103,4 +138,8 @@
         color: red;
     }
 
+}
+
+.ui-dialog-titlebar-close {
+  visibility: hidden;
 }

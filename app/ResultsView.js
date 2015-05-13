@@ -13,22 +13,19 @@ var ResultsView = Marionette.ItemView.extend({
 
     template: _.template(''
         + '<div class="msg"></div>'
-        + '<button class="next">&gt;</button>'
         + ''
     ),
 
     ui: {
         msg: '.msg',
-        nextButton: '.next'
     },
 
     triggers: {
-        'click @ui.nextButton': 'next'
     },
 
     onRender: function() {
         var isCorrect = this.model.get('isCorrect');
-        var txt = isCorrect ? 'The sweet spark of life still burns :)' : 'Mortality :(';
+        var txt = isCorrect ? 'Operation successful!' : 'Try again rookie';
         var cssClass = isCorrect ? 'correct' : 'incorrect';
         this.ui.msg.html(txt);
         this.$el.addClass(cssClass);

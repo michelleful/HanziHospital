@@ -16,6 +16,7 @@ var DonorsView = Marionette.CompositeView.extend({
         'click .hh-donor': 'onClickDonor'
     },
     template: _.template(''
+        + '<div class="label">Donor List</div>'
         + '<ul></ul>'
         + ''
     ),
