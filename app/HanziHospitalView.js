@@ -74,16 +74,35 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         console.log('HHV:onEvaluated', data);
         var resultsModel = new Backbone.Model(data);
         var resultsView = new ResultsView({model: resultsModel});
-        this.getRegion('message').show(resultsView);
-        this.curOperation++;
-        if (this.curOperation >= this.options.operations.length) {
-            // @TODO: show level end view.
-            console.log('end of level');
-        } else {
-            resultsView.on('next', () => {
-                resultsView.$el.fadeOut().promise().then(() => {
+        //this.getRegion('message').show(resultsView);
+        var $dialog = $('<div class="results-dialog"></div>');
+        resultsView.$el = $dialog;
+        resultsView.render();
+        $dialog.dialog({
+            autoOpen: true,
+            show: {
+                duration: 1000
+            },
+            hide: {
+                duration: 1000
+            }
+        });
+
+        var dfd = new $.Deferred();
+        setTimeout(function() {
+            $dialog.dialog('close');
+            dfd.resolve();
+        }, 2000);
+         
+        if (data.isCorrect) {
+            dfd.then(() => {
+                this.curOperation++;
+                if (this.curOperation >= this.options.operations.length) {
+                    // @TODO: show level end view.
+                    alert('FIN');
+                } else {
                     this.renderCurrentOperation();
-                });
+                }
             });
         }
     },
