@@ -33,12 +33,13 @@ var ComponentView = Marionette.ItemView.extend({
 
         // Setup drag-and-drop behavior.
         if (behavior == 'source') {
-            var $residue = this.$svg.clone();
-            $residue.css({
+            this.$residue = this.$svg.clone();
+            this.$residue.addClass('residue');
+            this.$residue.css({
                 'opacity': .5,
                 'position': 'absolute',
             });
-            this.ui.container.append($residue);
+            this.ui.container.append(this.$residue);
             this.$svg.css('z-index', 10);
             this.$svg.draggable({
                 revert: true,
@@ -55,7 +56,7 @@ var ComponentView = Marionette.ItemView.extend({
                         _this.model.get('component') == $draggable.data('component'));
 
                     if (isCorrect) {
-                        $draggable.fadeOut().promise().then(() => {
+                        $draggable.fadeTo('slow', 0).promise().then(() => {
                             _this.ui.container.addClass('correct');
                             _this.$svg.fadeTo('slow', 1).promise().then(function() {
                                 setTimeout(function() {
