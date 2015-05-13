@@ -14,7 +14,7 @@ var ComponentView = require('./ComponentView');
 var CharacterView = Marionette.LayoutView.extend({
     template: _.template(''
         + '<table><tbody><tr>'
-        + '<td>'
+        + '<td class="meaning-pinyin-container">'
         + '<div class="meaning"></div>'
         + '<div class="pinyin"></div>'
         + '</td>'
