@@ -10,24 +10,6 @@ f = ReadingFactory()
 
 operations = [
     {
-        'patient' : (u'她', 'she', 'ta1', 'left'),
-        'donors'  : [(u'妈', 'mother', 'ma1'), 
-                    (u'姐', 'older sister', 'jie3'),
-                    (u'妹', 'younger sister', 'mei4')]
-    },
-    {
-        'patient' : (u'池', 'pool', 'chi2', 'left'),
-        'donors'  : [(u'汤', 'soup', 'tang1'), 
-                     (u'沉', 'to sink', 'chen2'), 
-                     (u'江', 'river', 'jiang1')]
-    },
-    {
-        'patient' : (u'狗', 'dog', 'gou3', 'left'),
-        'donors'  : [(u'猫', 'cat', 'mao1'), 
-                     (u'猴', 'monkey', 'hou2'), 
-                     (u'狮', 'lion', 'shi1')]
-    },
-    {
         'patient' : (u'洋', 'ocean', 'yang2', 'right'),
         'donors'  : [(u'样', 'likeness', 'yang4'), 
                      (u'佯', 'to pretend', 'yang2'),
@@ -44,6 +26,24 @@ operations = [
         'donors'  : [(u'情', 'emotion', 'qing2'), 
                      (u'晴', 'fine (weather)', 'qing1'),
                      (u'清', 'clear, pure', 'qing1')]
+    },
+    {
+        'patient' : (u'她', 'she', 'ta1', 'left'),
+        'donors'  : [(u'妈', 'mother', 'ma1'), 
+                    (u'姐', 'older sister', 'jie3'),
+                    (u'妹', 'younger sister', 'mei4')]
+    },
+    {
+        'patient' : (u'池', 'pool', 'chi2', 'left'),
+        'donors'  : [(u'汤', 'soup', 'tang1'), 
+                     (u'沉', 'to sink', 'chen2'), 
+                     (u'江', 'river', 'jiang1')]
+    },
+    {
+        'patient' : (u'狗', 'dog', 'gou3', 'left'),
+        'donors'  : [(u'猫', 'cat', 'mao1'), 
+                     (u'猴', 'monkey', 'hou2'), 
+                     (u'狮', 'lion', 'shi1')]
     },
 ]
 
@@ -83,14 +83,15 @@ def create_character(char, meaning, pinyin, missing_position='left'):
     codepoint = char.encode('unicode_escape')[-4:]
 
     # auto-find Pinyin using cjklib
-    pinyin = f.convert(pinyin, 'Pinyin', 'Pinyin', sourceOptions={'toneMarkType': 'numbers', 'missingToneMark': 'fifth'})
+    pinyin_tone_marks = f.convert(pinyin, 'Pinyin', 'Pinyin', sourceOptions={'toneMarkType': 'numbers', 'missingToneMark': 'fifth'})
 
     return {
         'char': char,
         'codepoint': codepoint,
         'id': codepoint,
         'meaning': meaning,
-        'pinyin': pinyin,
+        'pinyin': pinyin_tone_marks,
+        'pinyinNumbers': pinyin,
         'components': {
             'left':  create_component('../svg/' + codepoint + '-left-half.svg' , 
                                       None if missing_position is None else missing_position == 'left'),
