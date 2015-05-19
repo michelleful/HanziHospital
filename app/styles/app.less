@@ -1,3 +1,69 @@
+#hanzi-hospital-app {
+    width: 780px;
+    height: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    border: thin solid #ccc;
+    border-radius: 10px;
+}
+
+.hh-operating-room {
+    background: #ddd;
+    display: flex;
+    flex-direction: row;
+
+    .gurney-container {
+        flex: 1 1 50%;
+        height: 260px;
+
+        &:before {
+            display: block;
+            content: ' ';
+            height: 100px;
+            background-image: url('./images/operating-room-lamp.svg');
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+    }
+
+    .gurney {
+        border: medium solid #ccc;
+        background-color: #dadada;
+        height: 100%;
+
+        &:after {
+            content: ' ';
+            display: block;
+            height: 100px;
+            background-image: url('./images/gurney-table.svg');
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-size: contain;
+        }
+
+    }
+
+    margin-bottom: 50px;
+    &:after {
+        content: ' ';
+        clear: both;
+        display: block;
+    }
+
+    .hh-character {
+
+        .meaning-pinyin-container {
+            width: 100px;
+        }
+
+        .hh-component {
+            height: 100%;
+        }
+    }
+
+}
+
+
 .label {
     font-weight: bold;
     font-size: 150%;
@@ -17,7 +83,6 @@
         text-align: center;
     }
 
-    min-width: 205px;
     &:after {
         content: ' ';
         display: block;
@@ -26,7 +91,8 @@
 }
 
 .hh-component-region {
-    float: left;
+    display: inline-block;
+    height: 100%;
 }
 
 .hh-component {
@@ -72,38 +138,6 @@
             }
         }
     }
-}
-
-.hh-operating-room {
-    .gurney-container {
-        float: left;
-        margin-right: 50px;
-    }
-    .gurney {
-        border: medium solid #ccc;
-        width: 400px;
-        background-color: #dadada;
-        height: 260px;
-    }
-
-    margin-bottom: 50px;
-    &:after {
-        content: ' ';
-        clear: both;
-        display: block;
-    }
-
-    .hh-character {
-
-        .meaning-pinyin-container {
-            width: 100px;
-        }
-
-        .hh-component {
-            height: 250px;
-        }
-    }
-
 }
 
 .donors-region {
