@@ -45,7 +45,7 @@ var ComponentView = Marionette.ItemView.extend({
 
         // Setup drag-and-drop behavior.
         if (behavior == 'source') {
-            this.$residue = this.$svg.clone();
+            this.$residue = this.$avatar.clone();
             this.$residue.addClass('residue');
             this.$residue.css({
                 'opacity': .5,
