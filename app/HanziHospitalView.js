@@ -17,16 +17,18 @@ var DUMMY_SRC = 'http://lorempixel.com/200/200/';
 
 var HanziHospitalView = Marionette.LayoutView.extend({
     template: _.template(''
-        + '<div class="message-region"></div>'
-        + '<div class="main-region"></div>'
-        + '<div class="donors-region"></div>'
+        + '<div class="hh-app-inner">'
+        + '<div class="message region-outer"><div class="region"></div></div>'
+        + '<div class="main region-outer"><div class="region"></div></div>'
+        + '<div class="donors region-outer"><div class="region"></div></div>'
+        +' </div>'
         + ''
     ),
 
     regions: {
-        message: '.message-region',
-        main: '.main-region',
-        donors: '.donors-region'
+        message: '.message .region',
+        main: '.main .region',
+        donors: '.donors .region'
     },
 
     initialize: function() {

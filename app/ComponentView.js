@@ -23,13 +23,25 @@ var ComponentView = Marionette.ItemView.extend({
         var behavior = this.options.behavior || this.model.get('behavior');
         this.$el.addClass(behavior);
 
-        // Set svg.
+        // Set spacer svg.
         this.$svg = $(this.model.get('svg'));
         this.$svg.attr('data-component', this.model.get('component'));
-        if (behavior == 'sink') {
-            this.$svg.css('opacity', 0);
-        }
+        this.$svg.css('opacity', 0);
         this.ui.container.append(this.$svg);
+
+        this.$avatar= this.$svg.clone();
+        this.$avatar.addClass('avatar');
+        this.$avatar.css({
+            'opacity': 1,
+            'position': 'absolute',
+            'z-index': 10
+        });
+
+        if (behavior == 'sink') {
+            this.$avatar.css({'opacity': 0});
+        }
+
+        this.ui.container.append(this.$avatar);
 
         // Setup drag-and-drop behavior.
         if (behavior == 'source') {
@@ -38,10 +50,11 @@ var ComponentView = Marionette.ItemView.extend({
             this.$residue.css({
                 'opacity': .5,
                 'position': 'absolute',
+                'z-index': 9
             });
             this.ui.container.append(this.$residue);
-            this.$svg.css('z-index', 10);
-            this.$svg.draggable({
+
+            this.$avatar.draggable({
                 revert: true,
             });
         } else if(behavior == 'sink') {
@@ -58,7 +71,7 @@ var ComponentView = Marionette.ItemView.extend({
                     if (isCorrect) {
                         $draggable.fadeTo('slow', 0).promise().then(() => {
                             _this.ui.container.addClass('correct');
-                            _this.$svg.fadeTo('slow', 1).promise().then(function() {
+                            _this.$avatar.fadeTo('slow', 1).promise().then(function() {
                                 setTimeout(function() {
                                     _this.trigger('drop', {isCorrect: isCorrect});
                                 }, 500);
