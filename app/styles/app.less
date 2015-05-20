@@ -1,3 +1,5 @@
+@import "~bootstrap/less/bootstrap";
+
 /**
  * Utility.
 **/
@@ -91,7 +93,7 @@
             .flex-inner;
             top: 20%;
 
-            > .label {
+            > .hh-label {
                 height: 30px;
             }
 
@@ -141,7 +143,7 @@
 }
 
 
-.label {
+.hh-label {
     font-weight: bold;
     font-size: 150%;
 }
@@ -186,7 +188,7 @@
         cursor: pointer;
     }
     
-    .container {
+    .hh-component-container {
         height: 100%;
         position: relative;
     }
@@ -203,7 +205,7 @@
 
 .gurney {
     .hh-component {
-        .container {
+        .hh-component-container {
             background-color: #eee;
             &.correct {
                 background-color: rgba(204, 255, 204, .5);
@@ -218,15 +220,12 @@
     }
 }
 
-.donors-region {
-    margin-top: 50px;
-    clear: both;
-}
 
 .hh-donors {
-    margin-top: 50px;
     ul {
         padding-left: 0;
+        margin-top :0;
+        margin-bottom: 0;
     }
 
     li {

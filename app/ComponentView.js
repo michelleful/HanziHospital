@@ -12,10 +12,10 @@ var Marionette = require('./marionette-shim');
 var ComponentView = Marionette.ItemView.extend({
     className: 'hh-component',
 
-    template: _.template('<div class="container"></div>'),
+    template: _.template('<div class="hh-component-container"></div>'),
 
     ui: {
-        container: '.container'
+        container: '.hh-component-container'
     },
 
     onRender: function() {
