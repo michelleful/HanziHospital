@@ -121,25 +121,6 @@
         }
 
     }
-
-
-
-    .hh-character {
-        height: 100%;
-        > table {
-            height: 100%;
-            width: 100%;
-        }
-
-        .meaning-pinyin-container {
-            min-width: 100px;
-        }
-
-        .hh-component {
-            height: 100%;
-        }
-    }
-
 }
 
 
@@ -149,35 +130,47 @@
 }
 
 .hh-character {
+    height: 100%;
 
-    .meaning-pinyin-container {
-        font-size: 150%;
+    .hh-character-inner {
+        height: 100%;
+        position: relative;
     }
 
-    .meaning {
+    .hh-meaning-pinyin-container {
+        position: absolute;
+        left: 0;
+        width: 14rem;
+        top: 0;
+        bottom: 0;
+        font-size: 150%;
+        padding: .5rem;
+    }
+
+    .hh-meaning {
         font-style: italic;
     }
 
-    .meaning, .pinyin {
+    .hh-meaning, .hh-pinyin {
         text-align: center;
     }
 
-    &:after {
-        content: ' ';
-        display: block;
-        clear: both;
+    .hh-components-container {
+        height: 100%;
+        margin-left: 14rem;
+
+        .hh-component-region {
+            display: inline-block;
+            height: 100%;
+        }
     }
+
 }
 
-.hh-component-region {
-    display: inline-block;
-    height: 100%;
-}
 
 .hh-component {
     position: relative;
-    min-width: 50px;
-    height: 120px;
+    height: 100%;
     overflow: visible;
 
     &.sink, &.source {
@@ -194,8 +187,9 @@
     }
 
     svg {
-        overflow: visible;
         height: 100%;
+        max-height: 100%;
+        overflow: visible;
         width: auto;
         left: 0;
         top: 0;
@@ -222,7 +216,10 @@
 
 
 .hh-donors {
+    height: 100%;
+
     ul {
+        height: 100%;
         padding-left: 0;
         margin-top :0;
         margin-bottom: 0;
@@ -230,25 +227,13 @@
 
     li {
         display: inline-block;
-        margin-right: 25px;
+        height: 100%;
+        margin-right: 1rem;
         border: thin solid #ccc;
         &:hover {
             background: #ccc;
         }
     }
-}
-
-.hh-results {
-    font-size: x-large;
-
-    &.correct {
-        color: green;
-    }
-    
-    &.incorrect {
-        color: red;
-    }
-
 }
 
 .ui-dialog-titlebar-close {
