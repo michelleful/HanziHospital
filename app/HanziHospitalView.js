@@ -74,15 +74,18 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         var resultsModel = new Backbone.Model(data);
         var resultsView = new ResultsView({model: resultsModel});
         //this.getRegion('message').show(resultsView);
-        var $dialog = $('<div class="results-dialog"></div>');
-        resultsView.$el = $dialog;
+        var $dialogEl = $('<div class="reveal-modal"></div>');
+        var $resultsEl = $('<div class="alert-box"></div>');
+        $resultsEl.addClass(data.isCorrect ? 'success' : 'alert');
+        resultsView.$el = $resultsEl;
+        $resultsEl.appendTo($dialogEl);
         resultsView.render();
 
-        $dialog.addClass('reveal-modal').appendTo($('body')).foundation('reveal').foundation('reveal', 'open');
+        $dialogEl.appendTo($('body')).foundation('reveal').foundation('reveal', 'open');
 
         var dfd = new $.Deferred();
         setTimeout(function() {
-            $dialog.foundation('reveal', 'close');
+            $dialogEl.foundation('reveal', 'close');
             dfd.resolve();
         }, 2000);
          
