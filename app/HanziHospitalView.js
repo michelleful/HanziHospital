@@ -6,13 +6,12 @@
 var Backbone = require('backbone');
 var _ = require('underscore');
 var Marionette = require('./marionette-shim');
+require('script!foundation/js/foundation/foundation');
+require('script!foundation/js/foundation/foundation.reveal');
 
 var OperatingRoomView = require('./OperatingRoomView');
 var ResultsView = require('./ResultsView');
 var DonorsView = require('./DonorsView');
-
-//@TODO: remove this!
-var DUMMY_SRC = 'http://lorempixel.com/200/200/';
 
 
 var HanziHospitalView = Marionette.LayoutView.extend({
@@ -78,19 +77,12 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         var $dialog = $('<div class="results-dialog"></div>');
         resultsView.$el = $dialog;
         resultsView.render();
-        $dialog.dialog({
-            autoOpen: true,
-            show: {
-                duration: 1000
-            },
-            hide: {
-                duration: 1000
-            }
-        });
+
+        $dialog.addClass('reveal-modal').appendTo($('body')).foundation('reveal').foundation('reveal', 'open');
 
         var dfd = new $.Deferred();
         setTimeout(function() {
-            $dialog.dialog('close');
+            $dialog.foundation('reveal', 'close');
             dfd.resolve();
         }, 2000);
          
