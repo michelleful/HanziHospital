@@ -36,58 +36,54 @@ html, body {
 
 .hh-operating-room {
     background: #ddd;
-    display: flex;
-    flex-direction: row;
+    height: 100%;
 
-    .gurney-container {
-        flex: 1 1 50%;
-        height: 260px;
+    .gurney {
+        width: 50%;
+        float: left;
+        height: 100%;
+        position: relative;
 
-        &:before {
-            display: block;
-            content: ' ';
-            height: 100px;
+        $gurneyTopHeight: 5rem;
+        .gurney-top {
+            height: $gurneyTopHeight;
+            width: 100%;
             background-image: url('./images/operating-room-lamp.svg');
             background-repeat: no-repeat;
             background-position: center top;
         }
-    }
 
-    .gurney {
-        border: medium solid #ccc;
-        background-color: #dadada;
-        height: 100%;
+        .gurney-bottom {
+            $gurneyImgHeight: 5rem;
+            position: absolute;
+            top: $gurneyTopHeight;
+            bottom: 0;
+            left: 0;
+            right: 0;
 
-        &:after {
-            content: ' ';
-            display: block;
-            height: 100px;
-            background-image: url('./images/gurney-table.svg');
-            background-repeat: no-repeat;
-            background-position: center bottom;
-            background-size: contain;
-        }
+            .gurney-content {
+                position: absolute;
+                top: 0;
+                bottom: $gurneyImgHeight;
+                left: 0;
+                right: 0;
+            }
 
-    }
+            &:after {
+                position: absolute;
+                bottom: 0;
+                content: ' ';
+                display: block;
+                height: $gurneyImgHeight;
+                width: 100%;
+                background-image: url('./images/gurney-table.svg');
+                background-repeat: no-repeat;
+                background-position: center bottom;
+                background-size: contain;
+            }
 
-    margin-bottom: 50px;
-    &:after {
-        content: ' ';
-        clear: both;
-        display: block;
-    }
-
-    .hh-character {
-
-        .meaning-pinyin-container {
-            width: 100px;
-        }
-
-        .hh-component {
-            height: 100%;
         }
     }
-
 }
 
 
@@ -97,6 +93,7 @@ html, body {
 }
 
 .hh-character {
+    height: 100%;
 
     .meaning-pinyin-container {
         font-size: 150%;

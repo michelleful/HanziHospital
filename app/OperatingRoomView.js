@@ -12,8 +12,8 @@ var CharacterView = require('./CharacterView');
 var OperatingRoomView = Marionette.LayoutView.extend({
     className: 'hh-operating-room',
     template: _.template(''
-        + '<div class="gurney-container"><div class="label">Patient</div><div class="patient-region gurney"></div></div>'
-        + '<div class="gurney-container"><div class="label">Donor</div><div class="donor-region gurney"></div></div>'
+        + '<div class="gurney"><div class="gurney-top"><div class="label">Patient</div></div><div class="gurney-bottom"><div class="patient-region gurney-content"></div></div></div>'
+        + '<div class="gurney"><div class="gurney-top"><div class="label">Donor</div></div><div class="gurney-bottom"><div class="donor-region gurney-content"></div></div></div>'
         + ''
     ),
 
