@@ -7,8 +7,6 @@ html, body {
 #hanzi-hospital-app {
     width: 100%;
     height: 100%;
-    max-width: 780px;
-    max-height: 780px;
     margin-left: auto;
     margin-right: auto;
     border: thin solid #ccc;
@@ -127,6 +125,7 @@ html, body {
         height: 100%;
         display: flex;
         flex-direction: row;
+        min-width: 10rem;
 
         > .hh-component-region {
             flex: 1 1 auto;
