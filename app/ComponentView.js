@@ -12,10 +12,10 @@ var Marionette = require('./marionette-shim');
 var ComponentView = Marionette.ItemView.extend({
     className: 'hh-component',
 
-    template: _.template('<div class="container"></div>'),
+    template: _.template('<div class="hh-component-inner"></div>'),
 
     ui: {
-        container: '.container'
+        container: '.hh-component-inner'
     },
 
     onRender: function() {
@@ -26,10 +26,17 @@ var ComponentView = Marionette.ItemView.extend({
         // Set svg.
         this.$svg = $(this.model.get('svg'));
         this.$svg.attr('data-component', this.model.get('component'));
-        if (behavior == 'sink') {
-            this.$svg.css({'opacity': 0});
-        }
+        this.$svg.css({'opacity': 0});
         this.ui.container.append(this.$svg);
+
+        this.$avatar = this.$svg.clone();
+        this.$avatar.attr('class', 'avatar');
+        this.$avatar.css({
+            'opacity': (behavior == 'sink') ? 0 : 1,
+            'position': 'absolute',
+            'z-index': 10
+        });
+        this.ui.container.append(this.$avatar);
 
         // Setup drag-and-drop behavior.
         if (behavior == 'source') {
@@ -41,15 +48,6 @@ var ComponentView = Marionette.ItemView.extend({
                 'z-index': 9
             });
             this.ui.container.append(this.$residue);
-
-            this.$avatar = this.$svg.clone();
-            this.$avatar.attr('class', 'avatar');
-            this.$avatar.css({
-                'opacity': 1,
-                'position': 'absolute',
-                'z-index': 10
-            });
-            this.ui.container.append(this.$avatar);
 
             this.$avatar.draggable({
                 revert: true,
@@ -68,7 +66,7 @@ var ComponentView = Marionette.ItemView.extend({
                     if (isCorrect) {
                         $draggable.fadeTo('slow', 0).promise().then(() => {
                             _this.ui.container.addClass('correct');
-                            _this.$svg.fadeTo('slow', 1).promise().then(function() {
+                            _this.$avatar.fadeTo('slow', 1).promise().then(function() {
                                 setTimeout(function() {
                                     _this.trigger('drop', {isCorrect: isCorrect});
                                 }, 500);

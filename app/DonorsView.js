@@ -16,8 +16,8 @@ var DonorsView = Marionette.CompositeView.extend({
         'click .hh-donor': 'onClickDonor'
     },
     template: _.template(''
-        + '<div class="label">Donor List</div>'
-        + '<ul></ul>'
+        + '<div class="hh-donors-top"><div class="label">Donor List</div></div>'
+        + '<div class="hh-donors-bottom"><ul></ul></div>'
         + ''
     ),
     childView: CharacterView,
