@@ -1,12 +1,37 @@
 @import "~foundation/scss/foundation";
 
+html, body {
+    height: 100%;
+}
+
 #hanzi-hospital-app {
-    width: 780px;
-    height: 480px;
+    width: 100%;
+    height: 100%;
+    max-width: 780px;
+    max-height: 780px;
     margin-left: auto;
     margin-right: auto;
     border: thin solid #ccc;
     border-radius: 10px;
+    position: relative;
+
+    $donorsHeight: 20rem;
+
+    > .main-region {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: $donorsHeight;
+    }
+
+    > .donors-region {
+        position: absolute;
+        bottom: 0;
+        height: $donorsHeight;
+        left: 0;
+        right: 0;
+    }
 }
 
 .hh-operating-room {
@@ -142,13 +167,7 @@
     }
 }
 
-.donors-region {
-    margin-top: 50px;
-    clear: both;
-}
-
 .hh-donors {
-    margin-top: 50px;
     ul {
         padding-left: 0;
     }
