@@ -15,7 +15,7 @@ html, body {
     border-radius: 10px;
     position: relative;
 
-    $donorsHeight: 20rem;
+    $donorsHeight: 10rem;
 
     > .main-region {
         position: absolute;
@@ -204,11 +204,16 @@ html, body {
 
         ul {
             padding-left: 0;
-            height: 100%;
             margin-left: 0;
+            height: 100%;
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
         }
 
         li {
+            height: 100%;
             display: inline-block;
             margin-right: 25px;
             border: thin solid #ccc;
