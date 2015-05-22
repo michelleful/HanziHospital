@@ -85,8 +85,11 @@ var HanziHospitalView = Marionette.LayoutView.extend({
 
         var dfd = new $.Deferred();
         setTimeout(function() {
+            $dialogEl.on('closed.fndtn.reveal', function () {
+                $dialogEl.remove();
+                dfd.resolve();
+            });
             $dialogEl.foundation('reveal', 'close');
-            dfd.resolve();
         }, 2000);
          
         if (data.isCorrect) {
