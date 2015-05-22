@@ -27,21 +27,31 @@ var ComponentView = Marionette.ItemView.extend({
         this.$svg = $(this.model.get('svg'));
         this.$svg.attr('data-component', this.model.get('component'));
         if (behavior == 'sink') {
-            this.$svg.css('opacity', 0);
+            this.$svg.css({'opacity': 0});
         }
         this.ui.container.append(this.$svg);
 
         // Setup drag-and-drop behavior.
         if (behavior == 'source') {
             this.$residue = this.$svg.clone();
-            this.$residue.addClass('residue');
+            this.$residue.attr('class', 'residue');
             this.$residue.css({
                 'opacity': .5,
                 'position': 'absolute',
+                'z-index': 9
             });
             this.ui.container.append(this.$residue);
-            this.$svg.css('z-index', 10);
-            this.$svg.draggable({
+
+            this.$avatar = this.$svg.clone();
+            this.$avatar.attr('class', 'avatar');
+            this.$avatar.css({
+                'opacity': 1,
+                'position': 'absolute',
+                'z-index': 10
+            });
+            this.ui.container.append(this.$avatar);
+
+            this.$avatar.draggable({
                 revert: true,
             });
         } else if(behavior == 'sink') {

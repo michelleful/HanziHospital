@@ -95,23 +95,39 @@ html, body {
 .hh-character {
     height: 100%;
 
-    .meaning-pinyin-container {
+    .hh-character-inner {
+        position: relative;
+        height: 100%;
+    }
+
+    $mpWidth: 10rem;
+
+    .hh-meaning-pinyin-container {
+        position: absolute;
+        left: 0;
+        width: $mpWidth;
         font-size: 150%;
+
+        .hh-meaning {
+            font-style: italic;
+        }
+
+        .hh-meaning, .hh-pinyin {
+            text-align: center;
+        }
     }
 
-    .meaning {
-        font-style: italic;
+    .hh-components-container {
+        margin-left: $mpWidth;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+
+        > .hh-component-region {
+            flex: 1 1 auto;
+        }
     }
 
-    .meaning, .pinyin {
-        text-align: center;
-    }
-
-    &:after {
-        content: ' ';
-        display: block;
-        clear: both;
-    }
 }
 
 .hh-component-region {
@@ -122,7 +138,7 @@ html, body {
 .hh-component {
     position: relative;
     min-width: 50px;
-    height: 120px;
+    height: 100%;
     overflow: visible;
 
     &.sink, &.source {
@@ -165,8 +181,11 @@ html, body {
 }
 
 .hh-donors {
+    height: 100%;
+
     ul {
         padding-left: 0;
+        height: 100%;
     }
 
     li {

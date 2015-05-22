@@ -13,27 +13,27 @@ var ComponentView = require('./ComponentView');
 
 var CharacterView = Marionette.LayoutView.extend({
     template: _.template(''
-        + '<table><tbody><tr>'
-        + '<td class="meaning-pinyin-container">'
-        + '<div class="meaning"></div>'
-        + '<div class="pinyin"></div>'
-        + '</td>'
-        + '<td>'
-        + '<div class="hh-component-region left-component"></div>'
-        + '<div class="hh-component-region right-component"></div>'
-        + '</td>'
-        + '</tr></tbody></table>'
+        + '<div class="hh-character-inner">'
+        + '<div class="hh-meaning-pinyin-container">'
+        + '<div class="hh-meaning"></div>'
+        + '<div class="hh-pinyin"></div>'
+        + '</div>'
+        + '<div class="hh-components-container">'
+        + '<div class="hh-component-region hh-left-component"></div>'
+        + '<div class="hh-component-region hh-right-component"></div>'
+        + '</div>'
+        + '</div>'
         + ''
     ),
 
     regions: {
-        left: '.left-component',
-        right: '.right-component'
+        left: '.hh-left-component',
+        right: '.hh-right-component'
     },
 
     ui: {
-        $meaning: '.meaning',
-        $pinyin: '.pinyin'
+        $meaning: '.hh-meaning',
+        $pinyin: '.hh-pinyin'
     },
 
     onRender: function() {
