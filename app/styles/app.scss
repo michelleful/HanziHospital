@@ -1,3 +1,5 @@
+@import "~foundation/scss/foundation";
+
 #hanzi-hospital-app {
     width: 780px;
     height: 480px;
@@ -108,7 +110,7 @@
     &.source {
         cursor: pointer;
     }
-    
+
     .container {
         height: 100%;
         position: relative;
@@ -167,7 +169,7 @@
     &.correct {
         color: green;
     }
-    
+
     &.incorrect {
         color: red;
     }
@@ -175,5 +177,5 @@
 }
 
 .ui-dialog-titlebar-close {
-  visibility: hidden;
+    visibility: hidden;
 }

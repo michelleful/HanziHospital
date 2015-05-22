@@ -1,6 +1,6 @@
 var $ = require('jquery');
 
-require('./styles/app.less');
+require('./styles/app.scss');
 var HanziHospitalApp = require('./HanziHospitalApp.js');
 
 
