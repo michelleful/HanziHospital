@@ -39,6 +39,8 @@ html, body {
     height: 100%;
 
     .gurney {
+        $gurneyPadding: .5rem;
+
         width: 50%;
         float: left;
         height: 100%;
@@ -55,18 +57,21 @@ html, body {
 
         .gurney-bottom {
             $gurneyImgHeight: 5rem;
+
             position: absolute;
-            top: $gurneyTopHeight;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            top: $gurneyTopHeight + $gurneyPadding;
+            bottom: $gurneyPadding;
+            left: $gurneyPadding;
+            right: $gurneyPadding;
 
             .gurney-content {
                 position: absolute;
                 top: 0;
                 bottom: $gurneyImgHeight;
-                left: 0;
-                right: 0;
+                width: 100%;
+                background-color: #fefefe;
+                border: thin solid #ccc;
+                padding: $gurneyPadding;
             }
 
             &:after {
@@ -203,7 +208,7 @@ html, body {
         width: 100%;
 
         ul {
-            padding-left: 0;
+            padding: .5rem;
             margin-left: 0;
             height: 100%;
             width: 100%;
