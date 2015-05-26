@@ -70,13 +70,12 @@ var HanziHospitalView = Marionette.LayoutView.extend({
     },
 
     onEvaluated: function(data) {
-        console.log('HHV:onEvaluated', data);
-        var resultsModel = new Backbone.Model(data);
-        var resultsView = new ResultsView({model: resultsModel});
-        //this.getRegion('message').show(resultsView);
-        var $dialogEl = $('<div class="reveal-modal"></div>');
+        var $dialogEl = $('<div class="reveal-modal" data-reveal></div>');
         var $resultsEl = $('<div class="alert-box"></div>');
         $resultsEl.addClass(data.isCorrect ? 'success' : 'alert');
+
+        var resultsModel = new Backbone.Model(data);
+        var resultsView = new ResultsView({model: resultsModel});
         resultsView.$el = $resultsEl;
         $resultsEl.appendTo($dialogEl);
         resultsView.render();
