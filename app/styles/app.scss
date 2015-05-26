@@ -90,14 +90,16 @@ html, body {
 
         // Responsive characters in gurneys.
         .hh-character-inner{
+            > div {
+                @include grid-column(12);
+                height: 50%;
+                width: auto;
+            }
 
-            @media #{$small-only} {
+            @media #{$large-only} {
                 > div {
-                    height: 50%;
-                    @include grid-column(12);
-                }
-                .hh-component-region {
-                    max-width: 45%;
+                    @include grid-column(6);
+                    width: auto;
                 }
             }
         }
@@ -122,6 +124,11 @@ html, body {
 
         > div {
             @include grid-column(6);
+        }
+
+        .hh-components-region {
+            width: auto;
+            max-width: 45%;
         }
     }
 
