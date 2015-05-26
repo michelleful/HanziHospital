@@ -84,7 +84,7 @@ var HanziHospitalView = Marionette.LayoutView.extend({
 
         var dfd = new $.Deferred();
         setTimeout(function() {
-            $dialogEl.on('closed.fndtn.reveal', function () {
+            $dialogEl.on('closed.reveal-modal', function () {
                 $dialogEl.remove();
                 dfd.resolve();
             });
