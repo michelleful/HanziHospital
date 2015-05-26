@@ -98,7 +98,9 @@ var HanziHospitalView = Marionette.LayoutView.extend({
                     // @TODO: show level end view.
                     window.location = '/HanziHospital/chapters/0/9';
                 } else {
-                    this.renderCurrentOperation();
+                    this.operatingRoomView.wheelOut().then(() => {
+                        this.renderCurrentOperation();
+                    });
                 }
             });
         }
