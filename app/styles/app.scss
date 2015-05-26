@@ -1,4 +1,5 @@
-@import "~foundation/scss/foundation";
+@import "~zurb-foundation-5/scss/foundation";
+@import "settings";
 
 html, body {
     height: 100%;
@@ -86,6 +87,15 @@ html, body {
             }
 
         }
+
+        // Responsive gurneys.
+        @media #{$small-only} {
+            border: thin solid purple;
+        }
+
+        @media #{$medium-up} { 
+        }
+
     }
 }
 
