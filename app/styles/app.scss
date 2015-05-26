@@ -88,13 +88,20 @@ html, body {
 
         }
 
-        // Responsive gurneys.
-        @media #{$small-only} {
-            border: thin solid purple;
+        // Responsive characters in gurneys.
+        .hh-character-inner{
+
+            @media #{$small-only} {
+                > div {
+                    height: 50%;
+                    @include grid-column(12);
+                }
+                .hh-component-region {
+                    max-width: 45%;
+                }
+            }
         }
 
-        @media #{$medium-up} { 
-        }
 
     }
 }
@@ -111,31 +118,17 @@ html, body {
     .hh-character-inner {
         position: relative;
         height: 100%;
-    }
+        @include grid-row();
 
-    $mpWidth: 10rem;
-
-    .hh-meaning-pinyin-container {
-        position: absolute;
-        left: 0;
-        width: $mpWidth;
-        font-size: 150%;
-
-        .hh-meaning {
-            font-style: italic;
-        }
-
-        .hh-meaning, .hh-pinyin {
-            text-align: center;
+        > div {
+            @include grid-column(6);
         }
     }
 
     .hh-components-container {
-        margin-left: $mpWidth;
         height: 100%;
         display: flex;
         flex-direction: row;
-        min-width: 10rem;
 
         > .hh-component-region {
             flex: 1 1 auto;
@@ -233,6 +226,37 @@ html, body {
             border: thin solid #ccc;
             &:hover {
                 background: #ccc;
+            }
+        }
+    }
+
+    .hh-character-inner {
+        $mpWidth: 10rem;
+
+        .hh-meaning-pinyin-container {
+            position: absolute;
+            left: 0;
+            width: $mpWidth;
+            font-size: 150%;
+
+            .hh-meaning {
+                font-style: italic;
+            }
+
+            .hh-meaning, .hh-pinyin {
+                text-align: center;
+            }
+        }
+
+        .hh-components-container {
+            margin-left: $mpWidth;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            min-width: 10rem;
+
+            > .hh-component-region {
+                flex: 1 1 auto;
             }
         }
     }

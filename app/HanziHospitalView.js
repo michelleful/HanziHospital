@@ -6,8 +6,8 @@
 var Backbone = require('backbone');
 var _ = require('underscore');
 var Marionette = require('./marionette-shim');
-require('script!foundation/js/foundation/foundation');
-require('script!foundation/js/foundation/foundation.reveal');
+require('script!zurb-foundation-5/js/foundation/foundation');
+require('script!zurb-foundation-5/js/foundation/foundation.reveal');
 
 var OperatingRoomView = require('./OperatingRoomView');
 var ResultsView = require('./ResultsView');

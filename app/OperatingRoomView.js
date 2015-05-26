@@ -40,9 +40,7 @@ var OperatingRoomView = Marionette.LayoutView.extend({
         } else {
             var BlankView = Marionette.ItemView.extend({
                 template: _.template(""
-                    + "<ol><li>Click on a donor from the list below to select it</li>"
-                    + "<li>Drag one of the donor's components to transplant it.</li>"
-                    + "</ol>"
+                    + "<p><b>Click</b> a donor below, then <b>drag</b> part of it to do a transplant!</p>"
                 )
             });
             this.getRegion('donor').show(new BlankView());
