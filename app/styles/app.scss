@@ -202,6 +202,7 @@ html, body {
 }
 
 .gurney {
+
     .hh-component {
         .hh-component-inner {
             background-color: #eee;
@@ -265,12 +266,6 @@ html, body {
             position: absolute;
             left: 0;
             width: $mpWidth;
-            font-size: 150%;
-            text-align: center;
-
-            .hh-meaning {
-                font-style: italic;
-            }
         }
 
         .hh-components-container {
@@ -286,6 +281,18 @@ html, body {
         }
     }
 
+}
+
+.hh-character {
+    font-size: 150%;
+
+    .hh-meaning-pinyin-container {
+        text-align: center;
+
+        .hh-meaning {
+            font-style: italic;
+        }
+    }
 }
 
 .ui-dialog-titlebar-close {
