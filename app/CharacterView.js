@@ -17,6 +17,7 @@ var CharacterView = Marionette.LayoutView.extend({
         + '<div class="hh-meaning-pinyin-container">'
         + '<div class="hh-meaning"></div>'
         + '<div class="hh-pinyin"></div>'
+        + '<div class="hh-audio"></div>'
         + '</div>'
         + '<div class="hh-components-container">'
         + '<div class="hh-component-region hh-left-component"></div>'
@@ -33,7 +34,8 @@ var CharacterView = Marionette.LayoutView.extend({
 
     ui: {
         $meaning: '.hh-meaning',
-        $pinyin: '.hh-pinyin'
+        $pinyin: '.hh-pinyin',
+        $audio: '.hh-audio'
     },
 
     onRender: function() {
@@ -46,6 +48,23 @@ var CharacterView = Marionette.LayoutView.extend({
 
         this.ui.$meaning.html(this.model.get('meaning'));
         this.ui.$pinyin.html(this.model.get('pinyin'));
+
+        var pinyinNum = this.model.get('pinyinNumbers');
+        this.ui.$audio.html(''
+            + '<i class="fa fa-play-circle"></i>'
+            + '<audio>'
+            + '<source src="audio/' + pinyinNum + '.ogg" type="audio/ogg">'
+            + '<source src="audio/' + pinyinNum + '.mp3" type="audio/mpeg">'
+            + '</audio>'
+        );
+
+        this.ui.$audio.on('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.ui.$audio.find('audio')[0].play();
+        });
+
+        this.ui.$pinyin.html(this.model.get('audio'));
 
 
         _.each(this.model.get('components'), function(component, position) {

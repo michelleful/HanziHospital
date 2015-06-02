@@ -14,7 +14,7 @@ html, body {
     border-radius: 10px;
     position: relative;
 
-    $donorsHeight: 10rem;
+    $donorsHeight: 12rem;
 
     > .main-region {
         position: absolute;
@@ -245,13 +245,10 @@ html, body {
             left: 0;
             width: $mpWidth;
             font-size: 150%;
+            text-align: center;
 
             .hh-meaning {
                 font-style: italic;
-            }
-
-            .hh-meaning, .hh-pinyin {
-                text-align: center;
             }
         }
 
