@@ -41,7 +41,7 @@ var OperatingRoomView = Marionette.LayoutView.extend({
             } else {
                 var BlankView = Marionette.ItemView.extend({
                     template: _.template(""
-                        + "<p><b>Click</b> a donor below, then <b>drag</b> part of it to do a transplant!</p>"
+                        + '<p class="gurney-msg"><b>Click</b> a donor below, then <b>drag</b> part of it to do a transplant!</p>'
                     )
                 });
 
