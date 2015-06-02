@@ -15,10 +15,31 @@ html, body {
     position: relative;
 
     $donorsHeight: 12rem;
+    $messageHeight: 6rem;
+
+    > .message-region {
+        position: absolute;
+        top: 0;
+        height: $messageHeight;
+        width: 100%;
+
+        h2 {
+            margin-top: 1em;
+        }
+
+        > .hh-progress {
+            float: right;
+            .emoticon {
+                font-family: mono;
+                color: green;
+            }
+        }
+
+    }
 
     > .main-region {
         position: absolute;
-        top: 0;
+        top: $messageHeight;
         left: 0;
         right: 0;
         bottom: $donorsHeight;

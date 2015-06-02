@@ -16,7 +16,14 @@ var DonorsView = require('./DonorsView');
 
 var HanziHospitalView = Marionette.LayoutView.extend({
     template: _.template(''
-        + '<div class="message-region"></div>'
+        + '<div class="message-region">'
+            + '<h2 class="label">HanziHospital</h2>'
+            + '<div class="hh-progress">'
+                + '<div><span class="emoticon">&gt;o&lt;</span> remaining: <span class="hh-remaining"></span></div>'
+                + '<div><span class="emoticon">^_^</span> healed: <span class="hh-healed">0</span></div>'
+                + '<div><span class="emoticon">x_x</span> killed: <span class="hh-killed">0</span></div>'
+            + '</div>'
+        + '</div>'
         + '<div class="main-region"></div>'
         + '<div class="donors-region"></div>'
         + ''
@@ -26,6 +33,12 @@ var HanziHospitalView = Marionette.LayoutView.extend({
         message: '.message-region',
         main: '.main-region',
         donors: '.donors-region'
+    },
+
+    ui: {
+        $remaining: '.hh-remaining',
+        $healed: '.hh-healed',
+        $killed: '.hh-killed',
     },
 
     initialize: function() {
@@ -38,6 +51,11 @@ var HanziHospitalView = Marionette.LayoutView.extend({
     },
 
     renderCurrentOperation() {
+        var remaining = this.options.operations.length - this.curOperation;
+        var healed = this.options.operations.length - remaining; 
+        this.ui.$remaining.html(remaining);
+        this.ui.$healed.html(healed);
+
         this.renderOperation(this.options.operations[this.curOperation]);
     },
 
